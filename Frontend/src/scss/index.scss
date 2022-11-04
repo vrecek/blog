@@ -1,0 +1,24 @@
+// font-family: 'Inconsolata', monospace;
+// font-family: 'Open Sans', sans-serif;
+
+@import './config';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+}
+
+div.App { overflow-x: hidden; } 
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    background: #303030;
+    color: $clr-white;
+    scroll-behavior: smooth;
+
+    svg { pointer-events: none; @include FullSize; }
+}

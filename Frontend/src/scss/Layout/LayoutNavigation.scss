@@ -1,0 +1,85 @@
+@import '../config';
+
+nav.layout-navigation {
+    @include Flex(sb, c);
+    height: $navHeight;
+    padding: 0 2em;
+    background: #292929;
+
+    div {
+        min-width: max-content;
+
+        &.wrap {
+            display: flex;
+
+            div.logo {
+                font-family: 'Inconsolata', monospace;
+                @include Flex(none, c);
+                font-size: 1.25rem;
+                font-weight: 800;
+                letter-spacing: 3px;
+                
+                span {
+                    margin-right: .25em;
+                    @include Rectangle(25px);
+                }
+            }
+
+            ul {
+                display: flex;
+                list-style: none;
+                margin-left: 5em;
+
+                li {
+                    &:not(:last-child) { margin-right: 1.5em; }
+                    transition: .3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: rgb(183, 191, 214);
+                        color: rgb(142, 163, 223);
+                        color: rgb(109, 160, 255)
+                    }
+                }
+            }
+        }
+
+        &.options {
+            button {
+                padding: .75em 2em;
+                outline: 0;
+                border: 0;
+                transition: .3s;
+                cursor: pointer;
+                border-radius: .25em;
+                border: 1px solid royalblue;
+
+                &.signin {
+                    background: royalblue;
+                    color: $clr-white;
+
+                    &:hover { 
+                        background: darken(royalblue, 10%); 
+                        border-color: darken(royalblue, 10%);
+                    }
+                }
+
+                &.joinus {
+                    margin-left: 1em;
+                    color: royalblue;
+                    background: none;
+
+                    &:hover {
+                        border-color: transparent;
+                        color: rgb(225, 225, 225);
+                    }
+                }
+
+                label {
+                    font-weight: 400;
+                    font-size: .95rem;
+                }
+            }
+        }
+    }
+}
