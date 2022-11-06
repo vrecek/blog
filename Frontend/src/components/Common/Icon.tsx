@@ -2,12 +2,13 @@ import React from 'react'
 import { IChildren } from '../../interfaces/CommonInterfaces'
 
 interface IIcon extends IChildren<JSX.Element> {
-    cname?: string
+    cname?: string,
+    action?: React.MouseEventHandler
 }
 
-const Icon = ({children, cname}: IIcon) => {
+const Icon = ({children, cname, action}: IIcon) => {
     return (
-        <span className={`icon ${cname ?? ''}`}>
+        <span onClick={action} className={`icon ${cname ?? ''}`}>
 
             {children}
 

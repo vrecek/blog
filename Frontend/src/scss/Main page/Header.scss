@@ -1,0 +1,171 @@
+@import '../config';
+
+header.homepage-header {
+    height: calc(100vh - $navHeight);
+    @include Flex(sb, c);
+    padding: 1em 4em;
+    position: relative;
+
+    span.abs {
+        @include Absolute(50%, 50%);
+        translate: -50% -50%;
+        @include Rectangle(65%);
+        z-index: -1;
+        color: #2d2d2d;
+    }
+
+    section.main {
+        height: 90%;
+
+        p.header {
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: .9rem;
+            margin-bottom: 1.5em;
+            color: $clr-grey;
+            border-left: 2px solid royalblue;
+            padding-left: .5em;
+        }
+    }
+
+    section.popular {
+        width: 45%;
+        @include Flex(none, none, c);
+
+        section.container {
+            flex-basis: 0;
+            flex-grow: 1;
+            overflow: hidden;
+            position: relative;
+
+            div.buttons {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: 2;
+                @include Flex(c, c);
+                width: 100%;
+                padding: 1em 0;
+
+                span {
+                    @include Rectangle(18px);
+                    margin: 0 .25em;
+                    border-radius: 50%;
+                    background: $clr-white;
+                    cursor: pointer;
+                    border: 2px solid $clr-black;
+
+                    &.active {
+                        background: $clr-bluel;
+                    }
+                }
+            }
+
+            div.moving {
+                @include FullSize;
+                display: flex;
+                transition: .5s;
+
+                article.popular {
+                    flex-shrink: 0;
+                    @include FullSize;
+                    position: relative;
+                    cursor: pointer;
+
+                    div.text {
+                        position: relative;
+                        z-index: 3;
+                        padding: 2em;
+                        
+                        p {
+                            text-shadow: 0 0 5px $clr-black;
+
+                            &.title {
+                                font-weight: 800;
+                                font-size: 2.5rem;
+                                margin-bottom: .5em;
+                            }
+
+                            &.text {
+                                font-style: italic;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+
+                    figure {
+                        @include FullSize;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+    
+                        img {
+                            @include FullSize;
+                            object-fit: cover;
+                            transition: 1s;
+                        }
+                    }
+
+                    &:hover {
+                        img { scale: 1.1; }
+                    }
+                }
+            }
+        }
+    }
+
+    section.latest {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+
+        section.container {
+            flex-basis: 0;
+            flex-grow: 1;
+            @include Flex(sa, none, c)
+        }
+        
+        article.latest {
+            width: 100%;
+            display: flex;
+            cursor: pointer;
+
+            div.text {
+                width: 75%;
+                padding: 0 0 .25em .5em;
+                @include Flex(sb, none, c);
+
+                p.text {
+                    font-weight: 700;
+                    font-size: 1.25rem;
+                }
+
+                div.misc {
+                    @include Flex(sb, c);
+
+                    p {
+                        font-size: .85rem;
+                        color: $clr-grey;
+                        font-family: 'Inconsolata', monospace;
+                    }
+                }
+            }
+
+            figure {
+                width: 25%;
+                height: 100%;
+                overflow: hidden;
+
+                img {
+                    @include FullSize;
+                    object-fit: cover;
+                    transition: 1s;
+                }
+            }
+
+            &:hover {
+                img { scale: 1.1; }
+            }
+        }
+    }
+}

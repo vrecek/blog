@@ -1,5 +1,6 @@
 import React from 'react'
 import LayoutWrap from '../Layout/LayoutWrap'
+import Header from './Header/Header'
 
 const MAIN_PAGE = () => {
     return (
@@ -7,7 +8,7 @@ const MAIN_PAGE = () => {
 
             <main className="homepage">
 
-                home
+                <Header />
 
             </main>
 

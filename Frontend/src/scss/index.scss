@@ -18,7 +18,19 @@ body {
     width: 100vw;
     background: #303030;
     color: $clr-white;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 
     svg { pointer-events: none; @include FullSize; }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        background: $clr-black;
+    }   
+
+    &::-webkit-scrollbar-thumb {
+        width: 100%;
+        border-radius: 1em;
+        background: royalblue;
+    }
 }

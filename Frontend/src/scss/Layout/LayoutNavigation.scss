@@ -36,9 +36,7 @@ nav.layout-navigation {
                     cursor: pointer;
 
                     &:hover {
-                        color: rgb(183, 191, 214);
-                        color: rgb(142, 163, 223);
-                        color: rgb(109, 160, 255)
+                        color: $clr-bluel;
                     }
                 }
             }

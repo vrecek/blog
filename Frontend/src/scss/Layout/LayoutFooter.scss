@@ -1,0 +1,100 @@
+@import '../config';
+
+footer.layout-footer {
+    background: #292929;
+    @include Flex(sb);
+    padding: 4em 6em;
+
+    .header {
+        font-size: .9rem;
+        text-transform: uppercase;
+        color: $clr-grey;
+        margin-bottom: 1em;
+        pointer-events: none;
+        font-weight: 300;
+    }
+
+    ul {
+        list-style: none;
+
+        &:not(:last-child) { margin-bottom: 5em; }
+
+        li {
+            font-weight: 300;
+
+            &:not(.header) {
+                &:not(:last-child) { margin-bottom: .25em; }
+
+                cursor: pointer;
+                transition: .3s;
+
+                &:hover {
+                    color: $clr-bluel;
+                }
+            }
+        }
+    }
+
+    section.right {
+        width: 35%;
+        @include Flex(sb, none, c);
+
+        div {
+            &.icons {
+                div {
+                    display: flex;
+
+                    span {
+                        @include Rectangle(30px);
+                        cursor: pointer;
+                        transition: .3s;
+
+                        &:not(:last-child) { margin-right: .5em; }
+    
+                        &:hover { color: $clr-bluel }
+                    }
+                }
+            }
+
+            &.newsletter {
+                p {
+                    color: $clr-grey;
+                    font-size: .95rem;
+                    margin-bottom: 1.5em;
+                }
+
+                div {
+                    @include Flex(sb, c);
+                    width: 100%;
+
+                    input {
+                        height: 100%;
+                        padding: calc(.85em + 1px);
+                        border: 0;
+                        outline: 0;
+                        width: 75%;
+                        background: $clr-white;
+                    }
+
+                    button {
+                        background: royalblue;
+                        border: 0;
+                        outline: 0;
+                        border-radius: 0 .25em .25em 0;
+                        padding: .85em 0;
+                        width: 25%;
+                        cursor: pointer;
+                        transition: .3s;
+
+                        label {
+                            color: $clr-white;
+                            font-size: 1rem;
+                        }
+
+                        &:hover { background: darken(royalblue, 5%); }
+                    }
+                }
+            }
+        }
+    }
+}
