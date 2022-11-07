@@ -1,21 +1,21 @@
 import React from 'react'
-import '../../../css/Header.css'
+import '../../../css/EntryArticles.css'
 import Icon from '../../Common/Icon'
 import {ImParagraphLeft} from 'react-icons/im'
 import LatestSection from './LatestSection/LatestSection'
 import PopularSection from './PopularSection/PopularSection'
 
-const Header = () => {
+const EntryArticles = () => {
     return (
-        <header className="homepage-header">
+        <section className="entry-articles">
 
             <PopularSection />
             <LatestSection />
 
             <Icon cname='abs'><ImParagraphLeft /></Icon>
 
-        </header>
+        </section>
     )
 }
 
-export default Header
+export default EntryArticles

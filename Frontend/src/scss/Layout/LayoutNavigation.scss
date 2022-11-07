@@ -5,6 +5,9 @@ nav.layout-navigation {
     height: $navHeight;
     padding: 0 2em;
     background: #292929;
+    position: sticky;
+    top: 0;
+    z-index: 99;
 
     div {
         min-width: max-content;

@@ -13,7 +13,7 @@ const FigureImage = ({cname, source, altTxt, clickAction}: IFigureImage) => {
    return (
       <figure onClick={clickAction ? (e) => clickAction(e, source) : blank} className={cname ?? ''}>
 
-         <img src={source} alt={altTxt ?? 'image'} />
+         <img loading='lazy' src={source} alt={altTxt ?? 'image'} />
 
       </figure>
    )

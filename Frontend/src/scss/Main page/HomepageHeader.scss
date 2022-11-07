@@ -1,0 +1,67 @@
+@import '../config';
+
+header.homepage-header {
+    height: calc(100vh - $navHeight);
+    background: url('../images/header.jpg');
+    background-size: cover;
+    padding: 2em 6em;
+    @include Flex(sa, none, c);
+
+    section.text {
+        width: 45%;
+
+        h2 {
+            font-size: 1.25rem;
+            font-family: 'Inconsolata', monospace;
+            color: $clr-grey;
+        }
+
+        h1 {
+            font-weight: 800;
+            margin-bottom: .5em;
+            font-size: 2.5rem;
+        }
+
+        p {
+            letter-spacing: 1px;
+        }
+    }
+
+    section.tiles {
+        @include Flex(sb);
+        align-items: stretch;
+
+        div.tile {
+            width: 18%;
+
+            div {
+                &.arrow {
+                    margin-top: 2em;
+                    @include Flex(none, c);
+                    text-shadow: 0 0 4px $clr-black;
+                    cursor: pointer;
+
+                    span {
+                        transition: .3s;
+                        margin-left: .75em;
+                        @include Rectangle(20px);
+                    }
+
+                    &:hover {
+                        span { translate: 50% 0; }
+                    }
+                }
+
+                &.entry {
+                    text-align: justify;
+                    text-shadow: 0 0 4px $clr-black;
+
+                    span {
+                        margin-bottom: 1em;
+                        @include Rectangle(40px);
+                    }
+                }
+            }
+        }
+    }
+}

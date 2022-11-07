@@ -1,6 +1,6 @@
 @import '../config';
 
-header.homepage-header {
+section.entry-articles {
     height: calc(100vh - $navHeight);
     @include Flex(sb, c);
     padding: 1em 4em;
@@ -29,7 +29,7 @@ header.homepage-header {
     }
 
     section.popular {
-        width: 45%;
+        width: 55%;
         @include Flex(none, none, c);
 
         section.container {
@@ -81,7 +81,7 @@ header.homepage-header {
                             text-shadow: 0 0 5px $clr-black;
 
                             &.title {
-                                font-weight: 800;
+                                font-weight: 700;
                                 font-size: 2.5rem;
                                 margin-bottom: .5em;
                             }
