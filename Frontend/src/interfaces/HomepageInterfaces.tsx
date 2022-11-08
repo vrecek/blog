@@ -16,3 +16,26 @@ export interface IPopularText {
 }
 
 //---------------------------------------------------------
+
+// ARTICLES SECTION
+
+export interface IHomepageArticle extends IRateAndDate {
+    id: string
+    category: string
+    title: string
+    image: string
+    cname?: 'big' | 'small'
+    para?: string
+}
+
+export interface IRateAndDate {
+    rate: number
+    date: number
+}
+
+export interface IArticleContainer {
+    articles: IHomepageArticle[]
+    cname: string
+}
+
+//---------------------------------------------------------

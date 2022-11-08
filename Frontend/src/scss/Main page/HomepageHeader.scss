@@ -11,7 +11,7 @@ header.homepage-header {
         width: 45%;
 
         h2 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-family: 'Inconsolata', monospace;
             color: $clr-grey;
         }
@@ -19,11 +19,12 @@ header.homepage-header {
         h1 {
             font-weight: 800;
             margin-bottom: .5em;
-            font-size: 2.5rem;
+            font-size: 3rem;
         }
 
         p {
             letter-spacing: 1px;
+            font-size: 1.25rem;
         }
     }
 
@@ -33,6 +34,9 @@ header.homepage-header {
 
         div.tile {
             width: 18%;
+            background: rgba(30, 30, 30, .9);
+            padding: 1em;
+            border-radius: .5em;
 
             div {
                 &.arrow {
@@ -55,10 +59,11 @@ header.homepage-header {
                 &.entry {
                     text-align: justify;
                     text-shadow: 0 0 4px $clr-black;
+                    font-size: 1.1rem;
 
                     span {
                         margin-bottom: 1em;
-                        @include Rectangle(40px);
+                        @include Rectangle(50px);
                     }
                 }
             }

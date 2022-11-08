@@ -6,7 +6,7 @@ footer.layout-footer {
     padding: 4em 6em;
 
     .header {
-        font-size: .9rem;
+        font-size: 1rem;
         text-transform: uppercase;
         color: $clr-grey;
         margin-bottom: 1em;
@@ -21,6 +21,7 @@ footer.layout-footer {
 
         li {
             font-weight: 300;
+            font-size: 1.25rem;
 
             &:not(.header) {
                 &:not(:last-child) { margin-bottom: .25em; }
@@ -45,7 +46,7 @@ footer.layout-footer {
                     display: flex;
 
                     span {
-                        @include Rectangle(30px);
+                        @include Rectangle(35px);
                         cursor: pointer;
                         transition: .3s;
 
@@ -74,6 +75,7 @@ footer.layout-footer {
                         outline: 0;
                         width: 75%;
                         background: $clr-white;
+                        font-size: 1rem;
                     }
 
                     button {
@@ -81,7 +83,7 @@ footer.layout-footer {
                         border: 0;
                         outline: 0;
                         border-radius: 0 .25em .25em 0;
-                        padding: .85em 0;
+                        padding: 1.1em 0;
                         width: 25%;
                         cursor: pointer;
                         transition: .3s;

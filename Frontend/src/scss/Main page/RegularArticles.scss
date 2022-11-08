@@ -1,0 +1,66 @@
+@import '../config';
+
+section.regular-articles {
+    padding-bottom: 5em;
+    @include Center(85%);
+
+    article.art {
+        display: flex;
+        width: 75%;
+        cursor: pointer;
+
+        &:not(:last-child) { margin-bottom: 5em; }
+
+        div.wrap-text {
+            @include Flex(sb, none, c);
+        }
+
+        p {
+            &.category {
+                color: $clr-grey;
+                font-family: 'Inconsolata', monospace;
+                font-weight: 500;
+                font-size: 1.25rem;
+            }
+
+            &.title {
+                font-size: 1.75rem;
+                font-weight: 700;
+            }
+
+            &.text {
+                font-family: 'Inconsolata', monospace;
+                font-size: 1.1rem;
+                color: $clr-grey;
+            }
+        }
+
+        figure {
+            width: 40%;
+            margin-right: 1em;
+
+            img {
+                @include FullSize;
+                object-fit: cover;
+            }
+        }
+
+        div.rate-and-date {
+            @include Flex(sb, fe);
+            margin-top: .5em;
+
+            p {
+                font-weight: 600;
+
+                &.rating {
+                    @include Flex(none, c);
+                    span { @include Rectangle(25px); margin-right: .25em; }
+                }
+
+                &.date {
+
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+@import '../config';
+
+section.border-articles {
+    padding: 2em;
+    padding-bottom: 6.5em;
+    @include Flex(sa);
+
+    article.art {
+        width: 25%;
+        border: 2px solid #404040;
+        overflow: hidden;
+        cursor: pointer;
+
+        div.wrap-text {
+            padding: 1em;
+        }
+
+        figure {
+            width: 100%;
+            aspect-ratio: 1.5;
+            @include Flex(c, c);
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        p {
+            &.category {
+                text-align: right;
+                color: $clr-grey;
+                font-family: 'Inconsolata', monospace;
+                font-size: 1.05rem;
+                font-weight: 600;
+                margin-bottom: .5em;
+            }
+
+            &.title {
+                font-size: 2rem;
+                font-weight: 700;
+            }
+
+            &.text {
+                margin: .5em 0 1.5em 0;
+                color: $clr-grey;
+            }
+        }
+
+        div.rate-and-date {
+            @include Flex(sb, c);
+
+            p {
+                font-size: 1.25rem;
+
+                &.rating {
+                    @include Flex(none, c);
+                    span { @include Rectangle(30px); margin-right: .25em; }
+                }
+
+                &.date {
+                    
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,125 @@
+@import '../config';
+
+section.one-two {
+    height: calc(100vh - $navHeight);
+    @include Flex(c, c);
+    padding: 5em 0;
+    
+    article.art {
+        position: relative;
+        @include Flex(fe, fe, c);
+        cursor: pointer;
+
+        div.wrap-text{ 
+            position: relative;
+            z-index: 2; 
+            height: max-content;
+            width: 80%;
+            padding-right: 1em;
+            padding-bottom: 1em;
+        }
+
+        figure {
+            @include Absolute(0, 0);
+            @include FullSize;
+
+            img {
+                object-fit: cover;
+                @include FullSize;
+            }
+        }
+
+        p {
+            &.category {
+                width: max-content;
+                background: royalblue;
+                border-radius: .5em;
+            }
+
+            &.title {
+                font-weight: 700;
+                text-shadow: 0 0 6px $clr-black;
+            }
+            
+            &.text {
+                font-weight: 600;
+                font-size: 1.1rem;
+                text-shadow: 0 0 4px $clr-black;
+            }
+        }
+        
+        div.rate-and-date {
+            @include Flex(sb);
+            margin-top: 1em;
+            
+            p {
+                text-shadow: 0 0 4px $clr-black;
+
+                &.rating {
+                    @include Flex(none, c);
+                    font-size: 1.25rem;
+                    font-weight: 600;
+
+                    span {
+                        margin-right: .25em; 
+                        @include Rectangle(25px);
+                    }
+                }
+
+                &.date {
+                    font-weight: 500;
+                }
+            }
+        }
+
+        &.big {
+            height: 100%;
+            width: 50%; 
+            margin-right: 1em;
+            
+            p {
+                &.category {
+                    padding: .5em 1.5em;
+                    font-weight: 600;
+                    font-size: 1.1rem;
+                }
+                
+                &.title {
+                    font-size: 3.5rem;
+                }
+            }
+        }
+        
+        &.small {
+            width: 100%;
+            height: calc(50% - .5em);
+            
+            p {
+                &.category {
+                    padding: .5em 1em;
+                    font-weight: 600;
+                    font-size: .9rem;
+                }
+
+                &.title {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+    div.wrap {
+        width: 30%;
+        height: 100%;
+        @include Flex(sb, none, c);
+    }
+
+    &.reverse {
+        flex-direction: row-reverse;
+        
+        .big { 
+            margin-left: 1em; 
+            margin-right: 0 !important;
+        }        
+    }
+}
