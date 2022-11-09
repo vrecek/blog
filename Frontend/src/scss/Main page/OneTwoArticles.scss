@@ -8,7 +8,6 @@ section.one-two {
     article.art {
         position: relative;
         @include Flex(fe, fe, c);
-        cursor: pointer;
 
         div.wrap-text{ 
             position: relative;

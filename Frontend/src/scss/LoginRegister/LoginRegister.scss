@@ -1,0 +1,113 @@
+@import '../config';
+
+main.logreg {
+    height: calc(100vh - $navHeight);
+    @include Flex(c, c);
+
+    article.left,
+    section.right {
+        height: 85%;
+    }
+
+    article.left {
+        width: 35%;
+        padding: 2em;
+        background: #252525;
+        border-radius: .25em 0 0 .25em;
+    }
+
+    section.right {
+        background: #373737;
+        width: 50%;
+        padding: 4em 2em;
+        border-radius: 0 .25em .25em 0;
+
+        p.redirect-para {
+            font-size: 1.2rem;
+
+            a {
+                text-decoration: none;
+                color: cornflowerblue;
+                transition: .3s;
+
+                &:hover { color: royalblue; }
+            }
+        }
+
+        h2 {
+            font-weight: 500;
+            font-size: 2.25rem;
+            letter-spacing: 2px;
+        }
+
+        button {
+            width: 100%;
+            padding: 1.25em 0;
+            background: royalblue;
+            cursor: pointer;
+            transition: .3s;
+            margin-top: 1em;
+            outline: 0;
+            border: 0;
+            border-radius: .5em;
+
+            label {
+                color: $clr-white;
+                font-size: 1.1rem;
+            }
+
+            &:hover { background: darken(royalblue, 5%); }
+        }
+
+        div.input-div {
+            &.small { width: 48%; }
+            &:not(.small) { width: 100%; }
+
+            &:not(:last-child) { margin-bottom: .5em; }
+
+            label {
+                font-weight: 500;
+                margin-bottom: .1em;
+                display: block;
+            }
+
+            div.input-wrap {
+                input {
+                    width: 100%;
+                    padding: 1em;
+                    border-radius: .25em;
+                    border: 0;
+                    outline: 0;
+                    background: #606060;
+                    color: $clr-white;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+
+        div.raf {
+            @include Flex(sb, c);
+            margin-top: .5em;
+            color: $clr-white;
+
+            a {
+                color: $clr-white;
+                text-decoration: none;
+                transition: .3s;
+
+                &:hover { color: royalblue; }
+            }
+
+            div {
+                @include Flex(none, c);
+
+                label,
+                input { cursor: pointer; }
+
+                label {
+                    margin-right: .5em;
+                }
+            }
+        }
+    }
+}

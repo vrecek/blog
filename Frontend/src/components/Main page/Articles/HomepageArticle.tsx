@@ -3,6 +3,7 @@ import { NavigateFunction, useNavigate } from 'react-router-dom'
 import { IHomepageArticle } from '../../../interfaces/HomepageInterfaces'
 import FigureImage from '../../Common/FigureImage'
 import RateAndDate from './RateAndDate'
+import '../../../css/HomeArticleHover.css'
 
 const HomepageArticle = ({cname, title, rate, date, para, image, id, category}: IHomepageArticle) => {
     const n: NavigateFunction = useNavigate()

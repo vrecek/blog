@@ -1,0 +1,75 @@
+@import '../config';
+
+main.logreg.register {
+    article.register-left {
+        @include Flex(c, c, c);
+
+        h1 {
+            margin-bottom: 2em;
+            font-weight: 700;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        section.profits {
+            div.reg-profit {
+                @include Flex(sb, c);
+                @include Center(80%);
+                &:not(:last-child) { margin-bottom: 1.5em; }
+
+                div {
+                    &.icon-container {
+                        width: 20%;
+                        border: 2px solid $clr-grey;
+                        border-radius: .5em;
+                        color: $clr-grey;
+                        height: max-content;
+                        aspect-ratio: 1;
+                        @include Flex(c, c);
+
+                        span {
+                            display: block;
+                            @include FullSize(85%);
+                        }
+                    }
+
+                    &.text-container {
+                        width: 75%;
+
+                        p {
+                            font-family: 'Inconsolata', monospace;
+
+                            &.header {
+                                font-weight: 600;
+                                font-size: 1.5rem;
+                                margin-bottom: .5em;
+                            }
+
+                            &.text {
+                                color: $clr-grey;
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section.register-right {
+        @include Flex(sb, c, c);
+
+        form {
+            width: 70%;
+
+            iframe {
+                display: block;
+                margin: .5em 0;
+            }
+
+            div.small-wrap {
+                @include Flex(sb);
+            }
+        }
+    }
+}

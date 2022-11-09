@@ -1,0 +1,47 @@
+@import '../config';
+
+main.logreg.login {
+    article.login-left {
+        @include Flex(sb, none, c);
+
+        figure {
+            @include Center(90%);
+            aspect-ratio: 1;
+
+            img {
+                @include FullSize;
+                object-fit: cover;
+            }
+        }
+
+        div {
+            text-align: center; 
+            padding-bottom: 1.25em;
+
+            h1,
+            p {
+                font-family: 'Inconsolata', monospace;
+            }
+
+            h1 {
+                font-weight: 700;
+                font-size: 2rem;
+                margin-bottom: .5em;
+            }
+
+            p {
+                font-size: 1.2rem;
+                @include Center(50%);
+                color: $clr-grey;
+            }
+        }
+    }
+
+    section.login-right {
+        @include Flex(sb, c, c);
+
+        form {
+            width: 50%;
+        }
+    }
+}

@@ -34,3 +34,22 @@ body {
         background: royalblue;
     }
 }
+
+div.arrow-top {
+    position: fixed;
+    right: 4px;
+    bottom: 4px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 9;
+    transition: .3s;
+    pointer-events: none;
+    background: royalblue;
+    border-radius: .25em;
+    @include Rectangle(30px);
+    @include Flex(c, c);
+
+    span {
+        @include Rectangle(80%);
+    }
+}

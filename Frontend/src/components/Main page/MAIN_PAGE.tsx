@@ -47,16 +47,6 @@ const MAIN_PAGE = () => {
             title: 'Conqeastur dolore ipsum elit information sitt',
             para: 'Fusce congue tristique sapien, eu iaculis ligula blandit non. Maecenas congue turpis nec risus venenatis elementum. Etiam ultricies diam odio, quis elementum ex iaculis eu.',
             rate: 5,
-            id: '10',
-            date: 1513
-        },
-
-        {
-            category: 'Tutorial',
-            image: img,
-            title: 'Conqeastur dolore ipsum elit information sitt',
-            para: 'Fusce congue tristique sapien, eu iaculis ligula blandit non. Maecenas congue turpis nec risus venenatis elementum. Etiam ultricies diam odio, quis elementum ex iaculis eu.',
-            rate: 5,
             id: '11',
             date: 1513
         },
@@ -180,7 +170,10 @@ const MAIN_PAGE = () => {
                 <OneTwoArticles articles={listOT2} cname='reverse' />
 
                 <ArticleContainer articles={listBorder} cname='border-articles' />
-                <ArticleContainer articles={listRegular} cname='regular-articles' />
+
+                <ArticleContainer category='Tutorials' articles={listRegular} cname='regular-articles' />
+                <ArticleContainer category='News' articles={listRegular} cname='regular-articles' />
+                <ArticleContainer category='CSS design' articles={listRegular} cname='regular-articles' />
 
             </main>
 

@@ -36,6 +36,7 @@ export interface IRateAndDate {
 export interface IArticleContainer {
     articles: IHomepageArticle[]
     cname: string
+    category?: string
 }
 
 //---------------------------------------------------------

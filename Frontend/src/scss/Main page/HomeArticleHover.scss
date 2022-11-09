@@ -1,0 +1,10 @@
+article.art {
+    figure { overflow: hidden; }
+    img { transition: 1s; }
+    
+    cursor: pointer;
+
+    &:hover {
+        figure img { scale: 1.05; }
+    }
+}
