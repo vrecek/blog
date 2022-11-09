@@ -8,7 +8,10 @@ const SliderButtons = ({sliderRef, slidersCount}: ISliderButtons) => {
     const intervalFunc = () => {
         if(!document.hasFocus()) return
 
-        const slider: HTMLElement = sliderRef.current!
+        const slider: HTMLElement | null = sliderRef?.current
+
+        if(!slider) return
+
         const btns: Element[] = Array.from(slider.parentElement!.children[1].children)
         const slideNr: number = parseInt(slider.getAttribute('counter') ?? '1')
 

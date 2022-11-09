@@ -50,6 +50,12 @@ $navHeight: 70px;
    width: $val;
 }
 
+@mixin SameRatio($val) {
+   width: $val;
+   height: max-content;
+   aspect-ratio: 1;
+}
+
 @mixin Flex($justify: none, $align: none, $dir: none) {
    display: flex;
    justify-content: FlexFunc($justify);

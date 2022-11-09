@@ -1,0 +1,105 @@
+@import '../config';
+
+main.contact-page {
+    height: calc(100vh - $navHeight);
+    @include Flex(sa, c);
+
+    section.tiles {
+        width: 35%;
+        @include Flex(c, c);
+        flex-wrap: wrap;
+
+        div.tile {
+            @include Flex(c, c, c);
+            @include SameRatio(45%);
+            border: 2px solid #252525;
+            box-shadow: 0 0 8px black;
+            margin: .5em;
+            padding: 1.5em;
+            border-radius: .25em;
+
+            p {
+                text-align: center;
+
+                &.header {
+                    font-size: 1.5rem;
+                    margin-bottom: .25em;
+                    font-weight: 600;
+                }
+
+                &.text {
+                    color: $clr-grey;
+                    font-size: 1.05rem;
+                }
+            }
+
+            div {
+                @include SameRatio(40%);
+                @include Flex(c, c);
+                color: $clr-bluel;
+
+                span { 
+                    display: block;
+                    @include FullSize(80%); 
+                }
+            }
+        }
+    }
+
+    form {
+        width: 30%;
+        
+        input,
+        textarea {
+            width: 100%;
+            border-radius: .2em;
+            outline: 0;
+            border: 0;
+            background: #252525;
+            padding: 1.25em 1.5em;
+            color: $clr-white;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 200px;
+        }
+
+        div.input-div {
+            margin-bottom: 2.5em;
+            position: relative;
+
+            label {
+                translate: 0 -50%;
+                position: absolute;
+                left: 1.5em;
+                top: 50%;
+                color: $clr-grey;
+                opacity: .7;
+                pointer-events: none;
+                transition: .3s;
+            }
+        }
+
+        button {
+            margin-top: 2.5em;
+            display: block;
+            background: royalblue;
+            border-radius: .25em;
+            border: 0;
+            cursor: pointer;
+            transition: .3s;
+            outline: 0;
+            padding: 1.25em 0;
+            width: 100%;
+
+            label {
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: $clr-white;
+            }
+
+            &:hover { background: darken(royalblue, 8%); }
+        }
+    }
+}

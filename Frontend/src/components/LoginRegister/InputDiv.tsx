@@ -1,7 +1,7 @@
 import React from 'react'
 import { IInputDiv } from '../../interfaces/LoginRegisterInterfaces'
 
-const InputDiv = ({label, type, additionalToContainer, additionalToInput, inputClass, divClass}: IInputDiv) => {
+const InputDiv = ({label, type, additionalToContainer, additionalToInput, inputClass, divClass, changeFunc}: IInputDiv) => {
     return (
         <div className={`input-div ${divClass ?? ''}`}>
 
@@ -9,7 +9,7 @@ const InputDiv = ({label, type, additionalToContainer, additionalToInput, inputC
 
             <div className='input-wrap'>
 
-                <input className={inputClass ?? ''} type={type} spellCheck='false' />
+                <input onChange={changeFunc} className={inputClass ?? ''} type={type} spellCheck='false' />
                 { 
                     additionalToInput && 
                         <>{additionalToInput}</>

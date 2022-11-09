@@ -22,6 +22,7 @@ export interface IInputDiv {
     divClass?: string
     additionalToInput?: JSX.Element
     additionalToContainer?: JSX.Element
+    changeFunc?: React.ChangeEventHandler
 }
 
 export interface IRedirectText {

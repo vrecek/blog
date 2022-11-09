@@ -16,14 +16,19 @@ nav.layout-navigation {
             display: flex;
 
             div.logo {
-                font-family: 'Inconsolata', monospace;
                 @include Flex(none, c);
-                font-size: 1.25rem;
-                font-weight: 800;
-                letter-spacing: 3px;
+                
+                p {
+                    font-family: 'Inconsolata', monospace;
+                    font-size: 1.25rem;
+                    font-weight: 800;
+                    letter-spacing: 3px;
+                    cursor: pointer;
+                }
                 
                 span {
-                    margin-right: .25em;
+                    margin-right: .5em;
+                    cursor: pointer;
                     @include Rectangle(25px);
                 }
             }
