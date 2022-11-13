@@ -1,0 +1,62 @@
+@import '../config';
+
+main.article-page {
+    aside.article-aside {
+        border-radius: .2em;
+        padding: 1em;
+        width: 23%;
+        height: calc(80vh - $navHeight);
+        position: sticky;
+        top: calc(25vh - $navHeight);
+        @include Flex(sb, none, c);
+
+        section.misc-info {
+            @include Flex(sa, fe);
+
+            div.icon {
+                @include Flex(none, c, c);
+                font-weight: 700;
+                font-size: 1.2rem;
+
+                span {
+                    margin-bottom: .25em;
+                }
+
+                &.likes {
+                    cursor: pointer;
+                    
+                    span { @include Rectangle(45px); pointer-events: none; }
+                }
+                &.date span { @include Rectangle(40px) }
+            }
+        }
+        
+        ul {
+            list-style: none;
+            @include Center(80%);
+
+            li {
+                &.disabled {
+                    margin-bottom: 1em;
+                    text-transform: uppercase;
+                    font-weight: 800;
+                    font-size: 1rem;
+                }
+
+                &:not(.disabled) {
+                    color: $clr-grey;
+                    font-family: 'Inconsolata', monospace;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    transition: .3s;
+
+                    &:not(:last-child) {
+                        margin-bottom: .75em;
+                    }
+
+                    &:hover { color: $clr-bluel; }
+                }
+            }
+        }
+    }
+}

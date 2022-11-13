@@ -50,9 +50,8 @@ $navHeight: 70px;
    width: $val;
 }
 
-@mixin SameRatio($val) {
-   width: $val;
-   height: max-content;
+@mixin HeightRatio($val) {
+   height: $val;
    aspect-ratio: 1;
 }
 

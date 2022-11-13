@@ -1,0 +1,96 @@
+@import '../config';
+
+main.search-page {
+    min-height: calc(100vh - $navHeight);
+    padding: 2em;
+
+    div.searchbar {
+        @include Center(50%);        
+        position: relative;
+
+        input {
+            width: 100%;
+            padding: 1.25em;
+            outline: 0;
+            border-radius: .1em;
+            background: #252525;
+            border: 2px solid #353535;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: $clr-white;
+        }
+
+        span {
+            @include HeightRatio(55%);
+            position: absolute;
+            background: #252525;
+            right: 1.25em;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    h1 {
+        font-weight: 800;
+        margin-bottom: 2em;
+        font-size: 2rem;    
+
+        span { margin-left: .25em; }
+    }
+
+    section.container {
+        @include Flex(sa);
+        flex-wrap: wrap;
+
+        article {
+            flex-shrink: 0;
+            width: 32%;
+            position: relative;
+            margin: 1em .25em;
+            margin-bottom: 5em;
+            cursor: pointer;
+
+            p {
+                &.header {
+                    font-weight: 800;
+                    font-size: 2.25rem;
+                    margin-bottom: .5em;
+                }
+
+                &.category {
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+                    background: green;
+                    box-shadow: 0 0 2px $clr-black;
+                    padding: .75em 1em;
+                    font-weight: 600;
+                    border-radius: .2em;
+                }
+
+                &.date {
+                    text-align: right;
+                    color: $clr-grey;
+                    font-weight: 500;
+                    font-size: 1.1rem;
+                }
+            }
+
+            figure {
+                width: 100%;
+                aspect-ratio: 1.5;
+                margin-bottom: .5em;
+                overflow: hidden;
+                background: red;
+
+                img {
+                    @include FullSize;
+                    object-fit: cover;
+                    transition: 1s;
+                }
+            }
+
+            &:hover img { scale: 1.05 }
+        }
+    }
+}

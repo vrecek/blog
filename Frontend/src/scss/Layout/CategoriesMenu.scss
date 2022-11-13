@@ -1,0 +1,60 @@
+@import '../config';
+
+li.layout-categories-menu {
+    margin-right: 1em !important;
+
+    p {
+        @include Flex(none, c);
+ 
+        span.arrow-dd {
+            transition: .3s;
+            pointer-events: none;
+            margin-left: .25em;
+            @include Rectangle(22px);
+        }
+    }
+    
+
+    section.categories-menu {
+        position: absolute;
+        background: #191919;
+        left: 0;
+        top: 100%;
+        transition: .3s;
+        width: 100%;
+        display: none;
+        height: 0;
+        overflow: hidden;
+
+        section.wrap {
+            padding: 5em 1em;
+            @include Flex(sa);
+
+            ol {
+                list-style: none;
+                border-left: 4px solid #151515;
+                padding-left: 1em;
+
+                li {
+                    &.active {
+                        font-weight: 800;
+                        font-size: 1.4rem;
+                        margin-bottom: .25em;
+                    }
+    
+                    &:not(.active) {
+                        color: $clr-grey;
+                        letter-spacing: 2px;
+                        font-size: 1.3rem;
+                        cursor: pointer;
+                        transition: .3s;
+
+                        &:hover {
+                            color: #858585;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

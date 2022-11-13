@@ -34,17 +34,22 @@ nav.layout-navigation {
             }
 
             ul {
-                display: flex;
+                @include Flex(none, c);
                 list-style: none;
                 margin-left: 5em;
 
                 li {
                     &:not(:last-child) { margin-right: 1.5em; }
-                    transition: .3s;
-                    cursor: pointer;
+                    
+                    p.list-p {
+                        transition: .3s;
+                        cursor: pointer;
+                        
+                        &:hover {
+                            color: $clr-bluel;
+                        }
 
-                    &:hover {
-                        color: $clr-bluel;
+                        &.active { color: $clr-bluel; }
                     }
                 }
             }

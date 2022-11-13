@@ -7,6 +7,9 @@ import LOGIN_PAGE from './components/LoginRegister/Login/LOGIN_PAGE';
 import REGISTER_PAGE from './components/LoginRegister/Register/REGISTER_PAGE';
 import HiddenMenu from './components/Layout/HiddenMenu/HiddenMenu';
 import CONTACT_PAGE from './components/Contact page/CONTACT_PAGE';
+import SEARCH_PAGE from './components/Search page/SEARCH_PAGE';
+import ARTICLE_PAGE from './components/Article page/ARTICLE_PAGE';
+import PROFILE_PAGE from './components/Profile page/PROFILE_PAGE';
 
 function App() {
     return (
@@ -22,6 +25,18 @@ function App() {
                     <Route path='/register' element={<REGISTER_PAGE />} />
 
                     <Route path='/contact' element={<CONTACT_PAGE />} />
+
+                    <Route path='/search'>
+
+                        <Route path='bar/:query' element={<SEARCH_PAGE />} />
+                        <Route path='category/:query' element={<SEARCH_PAGE />} />
+                        <Route path='subcategory/:query' element={<SEARCH_PAGE />} />
+
+                    </Route>
+
+                    <Route path='/article/:id' element={<ARTICLE_PAGE />} />
+
+                    <Route path='/profile' element={<PROFILE_PAGE />} />
 
                 </Routes>
 

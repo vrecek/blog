@@ -11,7 +11,8 @@ main.contact-page {
 
         div.tile {
             @include Flex(c, c, c);
-            @include SameRatio(45%);
+            width: 47%;
+            aspect-ratio: 1;
             border: 2px solid #252525;
             box-shadow: 0 0 8px black;
             margin: .5em;
@@ -34,7 +35,7 @@ main.contact-page {
             }
 
             div {
-                @include SameRatio(40%);
+                width: 50%;
                 @include Flex(c, c);
                 color: $clr-bluel;
 

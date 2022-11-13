@@ -1,0 +1,113 @@
+@import '../config';
+
+main.article-page {
+    min-height: calc(100vh - $navHeight);
+    @include Flex(sa);
+    padding: 2em;
+
+    section.main-container {
+        width: 70%;
+
+        article.content {
+            border-bottom: 2px solid $clr-grey;
+            margin-bottom: 4em;
+            padding-bottom: 5em;
+            section.article-image-section {
+                position: relative;
+
+                figure.main-img {
+                    width: 100%;
+                    aspect-ratio: 2;
+                    @include Flex(c, c);
+                    overflow: hidden;
+                    margin-bottom: 2em;
+    
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                ul.tags {
+                    list-style: none;
+                    z-index: 2;
+                    position: absolute;
+                    top: 4px;
+                    right: 4px;
+                    display: flex;
+
+                    li {
+                        margin-left: .5em;
+                        font-weight: 600;
+                        padding: .75em;
+                        background: royalblue;
+                        box-shadow: 0 0 6px black;
+                        border-radius: .15em;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            section.content-misc {
+                @include Flex(sb);
+                font-size: 1.2rem;
+                color: $clr-grey;
+                margin-bottom: .75em;
+
+                div {
+                    @include Flex(none, c);
+                    font-family: 'Inconsolata', monospace;
+                    font-weight: 800;
+                    
+                    span {
+                        @include Rectangle(30px);
+                        margin-right: .25em;
+                    }
+                }
+            }
+
+            h1 {
+                font-weight: 800;
+                font-size: 3.5rem;
+                margin-bottom: .5em;
+            }
+
+            p {
+                font-size: 1.25rem;
+                line-height: 2em;
+                color: $clr-grey;
+
+                a {
+                    color: greenyellow;
+                    text-decoration: none;
+
+                    &:hover { color: darken(greenyellow, 10%) }
+                }
+
+                img {
+                    width: 70%;
+                    display: block;
+                    margin: 2em auto;
+                }
+
+                span {
+                    &.box {
+                        display: block;
+                        background: #252525;
+                        color: $clr-white;
+                        border-radius: .2em;
+                        padding: 1em;
+                        margin: 1em 0;
+                    }
+
+                    &.header {
+                        display: block;
+                        font-size: 2rem;
+                        font-weight: 700;
+                        margin: 1em 0 .5em 0;
+                        color: $clr-white;
+                    }
+                }
+            }
+        }
+    }
+}
