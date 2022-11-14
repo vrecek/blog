@@ -3,6 +3,7 @@ import { IHomepageArticle } from '../../../interfaces/HomepageInterfaces'
 import img from '../../../images/n2.jpg'
 import ArticleContainer from '../../Main page/Articles/ArticleContainer/ArticleContainer'
 import '../../../css/FinalSection.css'
+import CommentsContainer from './Comments/CommentsContainer'
 
 const FinalSection = () => {
     const listRegular: IHomepageArticle[] = [
@@ -60,9 +61,13 @@ const FinalSection = () => {
     return (
         <section className='final-section'>
         
+            <CommentsContainer />
+
+            <p className="entry-header">Other articles</p>
+            
             <ArticleContainer 
                 articles={listRegular}
-                cname=''
+                cname='article-container'
             />
 
         </section>

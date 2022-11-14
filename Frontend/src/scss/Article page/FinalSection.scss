@@ -1,61 +1,117 @@
 @import '../config';
 
 section.final-section {
-    article.art{
-        display: flex;
-        width: 100%;
+    p.entry-header {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 2em;
+        letter-spacing: 1px;
+    }
 
-        &:not(:last-child) { margin-bottom: 5em; }
+    section.article-container {
+        article.art {
+            display: flex;
+            width: 100%;
+            margin-bottom: 5em;     
 
-        div.wrap-text {
-            @include Flex(sb, none, c);
-        }
-
-        p {
-            &.category {
-                color: $clr-grey;
-                font-family: 'Inconsolata', monospace;
-                font-weight: 500;
-                font-size: 1.25rem;
+            div.wrap-text {
+                @include Flex(sb, none, c);
             }
-
-            &.title {
-                font-size: 1.75rem;
-                font-weight: 700;
-            }
-
-            &.text {
-                font-family: 'Inconsolata', monospace;
-                font-size: 1.1rem;
-                color: $clr-grey;
-            }
-        }
-
-        figure {
-            width: 40%;
-            margin-right: 1em;
-
-            img {
-                @include FullSize;
-                object-fit: cover;
-            }
-        }
-
-        div.rate-and-date {
-            @include Flex(sb, fe);
-            margin-top: .5em;
-
+    
             p {
-                font-weight: 600;
-
-                &.rating {
-                    @include Flex(none, c);
-                    span { @include Rectangle(25px); margin-right: .25em; }
+                &.category {
+                    color: $clr-grey;
+                    font-family: 'Inconsolata', monospace;
+                    font-weight: 500;
+                    font-size: 1.25rem;
                 }
-
+    
+                &.title {
+                    font-size: 1.75rem;
+                    font-weight: 700;
+                }
+    
+                &.text {
+                    font-family: 'Inconsolata', monospace;
+                    font-size: 1.1rem;
+                    color: $clr-grey;
+                }
                 &.date {
-
+    
+                }         }
+    
+            figure {
+                width: 40%;
+                margin-right: 1em;
+    
+                img {
+                    @include FullSize;
+                    object-fit: cover;
                 }
+            }
+    
+            div.rate-and-date {
+                @include Flex(sb, fe);
+                margin-top: .5em;
+    
+                p {
+                    font-weight: 600;
+    
+                    &.rating {
+                        @include Flex(none, c);
+                        span { @include Rectangle(25px); margin-right: .25em; }
+                    }
+                }
+            }
+        }
+    }
+
+    section.comments-container {
+        border-bottom: 2px solid $clr-grey;
+        margin-bottom: 5em;
+        padding-bottom: 4em;
+
+        article.one-comment {
+            &:not(:last-child) { margin-bottom: 5em; }
+            &:last-child { margin-bottom: 3.5em; }
+
+            section.author-info {
+                @include Flex(none);
+
+                figure {
+                    width: 7%;
+                    aspect-ratio: 1;
+                    flex-shrink: 0;
+                    overflow: hidden;
+                    border-radius: .25em;
+
+                    img {
+                        @include FullSize;
+                        object-fit: cover;
+                    }
+                }
+
+                div.text {
+                    margin-left: 1em;
+
+                    p {
+                        &.date {
+                            color: $clr-grey;
+                            font-size: 1rem;
+                        }
+                        
+                        &.name {
+                            font-size: 1.2rem;
+                            margin-bottom: .25em;
+                        }
+                    }
+                }
+            }
+
+            p.text {
+                font-weight: 500;
+                width: calc(93% - 1em);
+                margin: 0 0 0 auto;
             }
         }
     }

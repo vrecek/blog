@@ -2,4 +2,214 @@
 
 main.profile-page {
     min-height: calc(100vh - $navHeight);
+    @include Flex(sa);
+    padding: 4em 1em;
+
+    aside.profile-aside {
+        width: 22%;
+        height: max-content;
+        position: sticky;
+        top: calc($navHeight + 4em);
+        
+        p.settings {
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 2em;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                color: $clr-grey;
+                margin-bottom: .5em;
+                font-size: 1.25rem;
+                transition: .3s;
+                cursor: pointer;
+
+                &.active {
+                    pointer-events: none;
+                    color: cornflowerblue;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        height: 100%;
+                        width: 2px;
+                        background: cornflowerblue;
+                        left: -1em;
+                        top: 0;
+                    }
+                }
+
+                &:hover {
+                    color: $clr-bluel;
+                }
+            }
+        }
+    }
+
+    section.content {
+        width: 65%;
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2em;
+            font-weight: 800;
+        }
+
+        &.profile-informations {
+            div.text-info {
+                margin-bottom: 2em;
+
+                h2 {
+                    font-weight: 600;
+                    font-family: 'Inconsolata', monospace;
+                    font-size: 1.25rem;
+                    position: relative;
+
+                    &::before {
+                        content: '---';
+                        font-weight: 600;
+                        font-family: 'Open Sans', sans-serif;
+                        font-size: 1.25rem;
+                        position: absolute;
+                        left: -1.25em;
+                        top: 50%;
+                        translate: 0 -50%;
+                    }
+                }
+
+                p.info {
+                    font-family: 'Inconsolata', monospace;
+                    font-size: 1.05rem;
+                }
+            }
+
+            section {
+                &.basic-informations {
+                    div.user-info {
+                        border-radius: .2em;
+                        border: 1px solid #505050;
+                        padding: 2em;
+    
+                        p {
+                            font-size: 1.1rem;
+
+                            &.key {
+                                font-weight: 800;
+                                margin-bottom: .5em;
+                            }
+    
+                            &.value {
+                                color: $clr-grey;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+    
+                    section.idk {
+                        @include Flex(sb);
+    
+                        div.user-info {
+                            width: 30%;
+                            aspect-ratio: 1;
+                            @include Flex(c, c);
+                            flex-direction: column;
+                        }
+                    }
+    
+                    section.uam {
+                        margin-bottom: 3em;
+                        @include Flex(sb);
+    
+                        div.user-info {
+                            width: 48%;
+                        }
+                    }
+                }
+
+                &.change-password {
+                    margin-top: 4em;
+
+                    form {
+                        section.pass-container {
+                            @include Flex(sb);
+                            
+                            div.password-div {
+                                border: 1px solid #505050;
+                                padding: 2em;
+                                border-radius: .25em;
+                                width: 48%;
+
+                                input {
+                                    width: 100%;
+                                    color: $clr-white;
+                                    padding: 1em;
+                                    outline: 0;
+                                    background: #282828;
+                                    border: 1px solid #353535;
+                                }
+                                
+                                label {
+                                    display: block;
+                                    font-weight: 800;
+                                    margin-bottom: .75em;
+                                    font-size: 1.1rem;
+                                }
+                            }
+
+                        }
+
+                        button {
+                            margin-top: 2em;
+                            background: $clr-blued;
+                            border-radius: .25em;
+                            cursor: pointer;
+                            transition: .3s;
+                            padding: 1.25em 2em;
+                            border: 0;
+                            outline: 0;
+
+                            label {
+                                font-weight: 500;
+                                color: $clr-white;
+                                font-size: 1rem;
+                            }
+
+                            &:hover { background: darken(royalblue, 8%); }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.profile-delete {
+            p {
+                font-size: 1.05rem;
+                color: crimson;
+                font-weight: 500;
+            }
+
+            button {
+                margin-top: 1em;
+                background: $clr-red;
+                cursor: pointer;
+                border-radius: .2em;
+                outline: 0;
+                border: 0;
+                padding: 1em 2em;
+                transition: .3s;
+
+                label {
+                    color: $clr-white;
+                    font-weight: 500;
+                    font-size: 1.1rem;
+                }
+
+                &:hover { background: crimson }
+            }
+        }
+    }
 }
