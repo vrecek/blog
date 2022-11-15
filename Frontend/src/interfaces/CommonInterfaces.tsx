@@ -7,3 +7,8 @@ export interface INavigateLinks {
     url: string
     cname?: string
 }
+
+export interface IKeyValue {
+    keyStr: string,
+    value: string | number
+}

@@ -10,6 +10,7 @@ import CONTACT_PAGE from './components/Contact page/CONTACT_PAGE';
 import SEARCH_PAGE from './components/Search page/SEARCH_PAGE';
 import ARTICLE_PAGE from './components/Article page/ARTICLE_PAGE';
 import PROFILE_PAGE from './components/Profile page/PROFILE_PAGE';
+import ADMIN_PAGE from './components/Admin/ADMIN_PAGE';
 
 function App() {
     return (
@@ -37,6 +38,8 @@ function App() {
                     <Route path='/article/:id' element={<ARTICLE_PAGE />} />
 
                     <Route path='/profile' element={<PROFILE_PAGE />} />
+
+                    <Route path={`/admin/${process.env.REACT_APP_ADMIN_URL}`} element={<ADMIN_PAGE />} />
 
                 </Routes>
 

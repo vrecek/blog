@@ -2,6 +2,7 @@ import React from 'react'
 import ArticleImageSection from './ImageSection/ArticleImageSection'
 import ContentMiscInfo from './ContentMisc/ContentMiscInfo'
 import FinalSection from './FinalSection'
+import TitleAndHeader from './TitleAndHeader'
 
 const ArticleContent = () => {
     return (
@@ -13,7 +14,8 @@ const ArticleContent = () => {
 
                 <ContentMiscInfo />
 
-                <h1>Lorem ipsum dolor sit amet conqesatur elit</h1>
+                <TitleAndHeader />
+                
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente quia, sit labore velit quod debitis qui mollitia dicta ipsa sunt veniam fugiat quasi porro omnis quisquam deserunt placeat delectus esse. <span className="header">Conqesatur elit</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. <span className="box">AAA iBBB
                     CCC

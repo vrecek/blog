@@ -69,7 +69,23 @@ main.article-page {
             h1 {
                 font-weight: 800;
                 font-size: 3.5rem;
-                margin-bottom: .5em;
+                margin-bottom: 1em;
+            }
+
+            h2 {
+                margin-top: 2em;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    height: 90%;
+                    width: 2px;
+                    background: $clr-white;
+                    position: absolute;
+                    left: -.5em;
+                    top: 50%;
+                    translate: 0 -50%;
+                }
             }
 
             p {
