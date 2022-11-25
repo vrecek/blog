@@ -1,24 +1,27 @@
 import React from 'react'
+import { CommentType } from '../../../../interfaces/ArticleType'
 import FigureImage from '../../../Common/FigureImage'
+import blank from '../../../../images/blank.jpg'
+import Client from '../../../../functions/Client'
 
-const OneComment = () => {
+const OneComment = ({authorAvatar, authorName, postedDate, text}: CommentType) => {
     return (
         <article className="one-comment">
 
             <section className="author-info">
 
-                <FigureImage source='http://localhost:3000/static/media/header.d57c9e6930442930c8a6.jpg' altTxt='Avatar' />
+                <FigureImage source={authorAvatar ?? blank} altTxt='Avatar' />
 
                 <div className="text">
 
-                    <p className="name">vrecek</p>
-                    <p className="date">Today</p>
+                    <p className="name">{authorName}</p>
+                    <p className="date">{Client.numberToDateString(postedDate)}</p>
 
                 </div>
 
             </section>            
 
-            <p className='text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo, praesentium voluptatem est aut iure dolore sed? Dignissimos quas obcaecati voluptatum temporibus illum beatae veniam maxime, modi dolorem eligendi consequuntur.</p>
+            <p className='text'>{text}</p>
 
         </article>
     )

@@ -7,30 +7,33 @@ const CategoriesMenu = () => {
 
     const lists: INavigateLinks[][] = [
         [
-            { text: 'Dolore1', url: '/', cname: 'active' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
+            { text: 'Categories', url: '/', cname: 'active' },
+            { text: 'Tutorials', url: '/search/category/Tutorial' },
+            { text: 'News', url: '/search/category/News' }
         ],
         
         [
-            { text: 'Dolore2', url: '/', cname: 'active' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
+            { text: 'Tags', url: '/', cname: 'active' },
+            { text: 'JavaScript', url: '/search/subcategory/JavaScript' },
+            { text: 'TypeScript', url: '/search/subcategory/TypeScript' },
+            { text: 'Programming', url: '/search/subcategory/Programming' },
+            { text: 'Web application', url: '/search/subcategory/Web application' },
+            { text: 'HTML', url: '/search/subcategory/HTML' },
+            { text: 'Linux', url: '/search/subcategory/Linux' },
+            { text: 'Terminal', url: '/search/subcategory/Terminal' },
+            { text: 'Commands', url: '/search/subcategory/Commands' },
         ],
 
         [
-            { text: 'Dolore3', url: '/', cname: 'active' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
-            { text: 'Dolore', url: '/search/subcategory/dolore' },
+            { text: 'Design', url: '/search/subcategory/Design' },
+            { text: 'CSS', url: '/search/subcategory/CSS' },
+            { text: 'SCSS', url: '/search/subcategory/SCSS' },
+            { text: 'ReactJS', url: '/search/subcategory/ReactJS' },
+            { text: 'NodeJS', url: '/search/subcategory/NodeJS' },
+            { text: 'Fullstack', url: '/search/subcategory/Fullstack' },
+            { text: 'Backend', url: '/search/subcategory/Backend' },
+            { text: 'Frontend', url: '/search/subcategory/Frontend' },
+            { text: 'Express', url: '/search/subcategory/Express' },
         ]
     ]
 

@@ -5,7 +5,7 @@ const Newsletter = () => {
     return (
         <div className="newsletter">
 
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nemo alias aliquam.</p>
+            <p>Subscribe to our newsletter to don't miss any news!</p>
 
             <div>
 

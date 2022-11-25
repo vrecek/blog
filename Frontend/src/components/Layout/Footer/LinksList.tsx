@@ -1,7 +1,10 @@
 import React from 'react'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
 import { ILinksListComponent } from '../../../interfaces/FooterInterfaces'
 
 const LinksList = ({list}: ILinksListComponent) => {
+    const n: NavigateFunction = useNavigate()
+    
     return (
         <div>
 
@@ -11,7 +14,7 @@ const LinksList = ({list}: ILinksListComponent) => {
 
                         {
                             x.map((y, j) => (
-                                <li className={y.cname ?? ''} key={j}>
+                                <li onClick={() => n(y.url)} className={y.cname ?? ''} key={j}>
 
                                     {y.text}
 

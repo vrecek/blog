@@ -1,14 +1,17 @@
 import React from 'react'
 import FigureImage from '../../../Common/FigureImage'
-import img from '../../../../images/n1.jpg'
 import LatestText from './LatestText'
+import { ILatest } from '../../../../interfaces/HomepageInterfaces'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
 
-const LatestArticle = () => {
+const LatestArticle = ({mainImg, title, _id, category, posted}: ILatest) => {
+    const n: NavigateFunction = useNavigate()
+
     return (
-        <article className="latest">
+        <article onClick={() => n(`/article/${_id}`)} className="latest">
 
-            <FigureImage source={img} altTxt='Article' />
-            <LatestText />
+            <FigureImage source={mainImg.url} altTxt='Article' />
+            <LatestText title={title} category={category} posted={posted} />
 
         </article>
     )

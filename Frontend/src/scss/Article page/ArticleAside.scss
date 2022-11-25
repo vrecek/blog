@@ -3,11 +3,10 @@
 main.article-page {
     aside.article-aside {
         border-radius: .2em;
-        padding: 1em;
-        width: 23%;
-        height: calc(80vh - $navHeight);
+        width: 25%;
+        height: calc(90vh - $navHeight);
         position: sticky;
-        top: calc(25vh - $navHeight);
+        top: calc(20vh - $navHeight);
         @include Flex(sb, none, c);
 
         section.misc-info {
@@ -16,7 +15,7 @@ main.article-page {
             div.icon {
                 @include Flex(none, c, c);
                 font-weight: 700;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
 
                 span {
                     margin-bottom: .25em;
@@ -26,14 +25,21 @@ main.article-page {
                     cursor: pointer;
                     
                     span { @include Rectangle(45px); pointer-events: none; }
+
+                    p { font-weight: 700; pointer-events: none; }
+
+                    &.true {
+                        span { color: greenyellow; }
+                    }
                 }
+
                 &.date span { @include Rectangle(40px) }
             }
         }
         
         ul {
             list-style: none;
-            @include Center(80%);
+            @include Center(90%);
 
             li {
                 &.disabled {
@@ -56,6 +62,20 @@ main.article-page {
 
                     &:hover { color: $clr-bluel; }
                 }
+            }
+        }
+
+        @media (max-width: 1000px) {
+            width: 100%;
+            height: auto;
+            position: sticky;
+            @include Flex(none, none, cr);
+            margin-bottom: 5em;
+            padding-bottom: 5em;
+            border-bottom: 2px solid $clr-grey;
+
+            section.misc-info {
+                margin-bottom: 4em;
             }
         }
     }

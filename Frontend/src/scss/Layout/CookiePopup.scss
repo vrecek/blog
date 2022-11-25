@@ -1,0 +1,71 @@
+@import '../config';
+
+section.cookie-popup {
+    background: rgb(30, 30, 30, .9);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999999;
+    @include Flex(c, c);
+
+    section.content {
+        background: $clr-blued;
+        padding: 2em;
+        background: rgb(252, 176, 64);
+        width: 500px;
+        max-width: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 1em;
+
+        figure {
+            @include Center(50%);
+            aspect-ratio: 1;
+            rotate: 180deg;
+
+            img {
+                @include FullSize;
+                object-fit: cover;
+            }
+        }
+
+        p {
+            text-align: center;
+
+            &.header {
+                font-weight: 800;
+                font-size: 2.25rem;
+                color: saddlebrown;
+            }
+
+            &.text {
+                color: $clr-black;
+                color: saddlebrown;
+                font-weight: 700;
+                font-size: 1.2rem;
+                margin: 1.5em 0;
+            }
+        }
+
+        button {
+            width: 100%;
+            padding: 1.5em 0;
+            border-radius: .25em;
+            background: $clr-blued;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            transition: .3s;
+
+            label {
+                font-size: 1.1rem;
+                color: $clr-white;
+                font-weight: 500;
+            }
+
+            &:hover { background: royalblue; }
+        }
+    }
+}

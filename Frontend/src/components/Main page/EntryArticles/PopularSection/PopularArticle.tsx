@@ -4,15 +4,15 @@ import PopularText from './PopularText'
 import { ISlide } from '../../../../interfaces/HomepageInterfaces'
 import { NavigateFunction, useNavigate } from 'react-router-dom'
 
-const PopularArticle = ({image, header, para, id}: ISlide) => {
+const PopularArticle = ({mainImg, header, title, _id}: ISlide) => {
     const n: NavigateFunction = useNavigate()
 
     return (
-        <article onClick={() => n(`/article/${id}`)} className="popular">
+        <article onClick={() => n(`/article/${_id}`)} className="popular">
 
-            <FigureImage source={image} altTxt='Popular' />
+            <FigureImage source={mainImg.url} altTxt='Popular' />
 
-            <PopularText header={header} para={para} />
+            <PopularText header={header} title={title} />
 
         </article>
     )

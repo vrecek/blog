@@ -35,13 +35,20 @@ main.logreg.login {
                 color: $clr-grey;
             }
         }
+
+        @media (max-width: 1000px) {
+            figure {
+                width: 250px;
+                max-width: 80%;
+            }
+
+            div { p {
+                width: 100%;
+            } }
+        }
     }
 
     section.login-right {
         @include Flex(sb, c, c);
-
-        form {
-            width: 50%;
-        }
     }
 }

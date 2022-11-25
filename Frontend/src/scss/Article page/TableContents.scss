@@ -1,0 +1,47 @@
+@import '../config';
+
+section.toc {
+    background: #252525;
+    padding: clamp(1em, 4vw, 2em) 2em;
+    margin-bottom: 3em;
+
+    div {
+        @include Flex(sb, c);
+
+        p {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        span {
+            @include Rectangle(30px);
+            cursor: pointer;
+        }
+    }
+
+    ul {
+        display: none;
+        height: 0;
+        overflow: hidden;
+        margin-top: 2em;
+        transition: .3s;
+
+        li {
+            &:not(:last-child) { margin-bottom: 1em; }
+            margin-left: 3em;
+            font-weight: 600;
+            cursor: pointer;
+            @include Clamp(1, 5, 1.2);
+            color: $clr-grey;
+            transition: .3s;
+            width: max-content;
+
+            &:hover { color: $clr-bluel; }
+
+            @media (max-width: 480px) {
+                margin-left: 1em;
+            }
+        }
+    }
+}

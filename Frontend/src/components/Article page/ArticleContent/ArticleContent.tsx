@@ -3,30 +3,31 @@ import ArticleImageSection from './ImageSection/ArticleImageSection'
 import ContentMiscInfo from './ContentMisc/ContentMiscInfo'
 import FinalSection from './FinalSection'
 import TitleAndHeader from './TitleAndHeader'
+import { IArticleContent } from '../../../interfaces/ArticlePageInterfaces'
+import TextParagraph from './TextParagraph'
+import TableOfContents from './TableOfContents'
 
-const ArticleContent = () => {
+const ArticleContent = ({main, regularArticles}: IArticleContent) => {
+    const {tags, mainImg, posted, text, additionalImgs, comments, header, title, _id} = main
+
     return (
         <section className="main-container">
 
             <article className="content">
 
-                <ArticleImageSection />
+                <ArticleImageSection tags={tags} image={mainImg.url} />
 
-                <ContentMiscInfo />
+                <ContentMiscInfo postedDate={posted} textLen={text.length} />
 
-                <TitleAndHeader />
+                <TitleAndHeader header={header} title={title} />
+
+                <TableOfContents text={text} />
                 
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente quia, sit labore velit quod debitis qui mollitia dicta ipsa sunt veniam fugiat quasi porro omnis quisquam deserunt placeat delectus esse. <span className="header">Conqesatur elit</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. <span className="box">AAA iBBB
-                    CCC
-                    amet</span> 
-                    <img src='http://localhost:3000/static/media/header.d57c9e6930442930c8a6.jpg' loading='lazy' alt='Image' />
-                    Beatae ab at ipsam nemo <a href='/' className="link">veritatis</a> dolor delectus, inventore vitae cum harum accusantium ducimus aliquid accusamus possimus dolores quo. Possimus, sequi similique.
-                </p>
+                <TextParagraph text={text} images={additionalImgs.map(x => x.url)} />
 
             </article>
 
-            <FinalSection />
+            <FinalSection id={_id} regularArticles={regularArticles} comments={comments} />
 
         </section>
     )

@@ -1,5 +1,7 @@
 import React from 'react'
+import { AiOutlineLike } from 'react-icons/ai'
 import { MdArticle } from 'react-icons/md'
+import {SiWebcomponentsdotorg} from 'react-icons/si'
 import RegisterProfit from './Left/RegisterProfit'
 
 const RegisterLeft = () => {
@@ -11,21 +13,21 @@ const RegisterLeft = () => {
             <section className="profits">
 
                 <RegisterProfit 
-                    header='Lorem ipsum dolor'
-                    text='Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent tincidunt vehicula tincidunt. Morbi sit amet ipsum '
+                    header='Rate articles'
+                    text='Be able to rate articles, improving their further quality'
+                    icon={<AiOutlineLike />}
+                />
+
+                <RegisterProfit 
+                    header='Comment the articles'
+                    text='Write your thoughts about the article you have just read'
                     icon={<MdArticle />}
                 />
 
                 <RegisterProfit 
-                    header='Lorem ipsum dolor'
-                    text='Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent tincidunt vehicula tincidunt. Morbi sit amet ipsum '
-                    icon={<MdArticle />}
-                />
-
-                <RegisterProfit 
-                    header='Lorem ipsum dolor'
-                    text='Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent tincidunt vehicula tincidunt. Morbi sit amet ipsum '
-                    icon={<MdArticle />}
+                    header='Help improving this website'
+                    text='When registering, you are helping us improving and expanding our blog'
+                    icon={<SiWebcomponentsdotorg />}
                 />
 
             </section>

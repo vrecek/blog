@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../../css/LayoutFooter.css'
-import { ILinksList } from '../../../interfaces/FooterInterfaces'
+import { ILinksList } from '../../../interfaces/CommonInterfaces'
 import LinksList from './LinksList'
 import Newsletter from './Newsletter'
 import Socials from './Socials'
@@ -9,30 +9,23 @@ const LayoutFooter = () => {
     const firstList: ILinksList[][] = [
         [
             { text: 'Links', url: '/', cname: 'header' },
-            { text: 'Homepage', url: '/' }
+            { text: 'Homepage', url: '/' },
+            { text: 'Contact', url: '/contact' }
         ],
 
         [
             { text: 'User', url: '/', cname: 'header' },
-            { text: 'Profile', url: '/', },
-            { text: 'Sign in', url: '/', },
-            { text: 'Create an account', url: '/', }
+            { text: 'Profile', url: '/profile', },
+            { text: 'Sign in', url: '/sign-in', },
+            { text: 'Create an account', url: '/register', }
         ]
     ]
 
     const secondList: ILinksList[][] = [
         [
             { text: 'Articles', url: '/', cname: 'header' },
-            { text: 'Popular', url: '/' },
-            { text: 'Latest', url: '/' },
-            { text: 'NSFW', url: '/' }
-        ],
-
-        [
-            { text: 'Misc', url: '/', cname: 'header' },
-            { text: 'Contact', url: '/', },
-            { text: 'About', url: '/', },
-            { text: 'Privacy policy', url: '/', }
+            { text: 'Popular', url: '/search/type/popular' },
+            { text: 'Latest', url: '/search/type/latest' },
         ]
     ]
 

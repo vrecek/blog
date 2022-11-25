@@ -6,7 +6,11 @@ const InformationDiv = ({keyName, value, cname}: IProfileInfoDiv) => {
         <div className={`user-info ${cname ?? ''}`}>
 
             <p className="key">{keyName}</p>
-            <p className="value">{value}</p>
+            {
+                typeof value !== 'object'
+                    ?   <p className="value">{value}</p>
+                    :   value
+            }
 
         </div>
     )

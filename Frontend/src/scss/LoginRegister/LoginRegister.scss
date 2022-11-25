@@ -7,6 +7,32 @@ main.logreg {
     article.left,
     section.right {
         height: 85%;
+        position: relative;
+    }
+
+    form {
+        position: relative;
+        width: 90%;
+        max-width: 600px;
+
+        h6 {
+            position: absolute;
+            left: 50%;
+            translate: -50% 0;
+            top: 102%;
+            font-weight: 500;
+            width: 95%;
+            text-align: center;
+            font-size: 1rem;
+            
+            &.false {
+                color: red;
+            }
+
+            &.true {
+                color: $clr-bluel;
+            }
+        }
     }
 
     article.left {
@@ -72,9 +98,35 @@ main.logreg {
             }
 
             div.input-wrap {
+                position: relative;
+
+                div.password-toggler {
+                    position: absolute;
+                    right: 15px;
+                    top: 50%;
+                    translate: 0 -50%;
+                    cursor: pointer;
+
+                    span { pointer-events: none; }
+
+                    span.line {
+                        @include Absolute(50%, 50%);
+                        width: 125%;
+                        height: 3px;
+                        translate: -50% -50%;
+                        background: $clr-white;
+                        rotate: 145deg
+                    }
+
+                    span.icon {
+                        @include Rectangle(30px);
+                    }
+                }
+
                 input {
                     width: 100%;
-                    padding: 1em;
+                    padding: clamp(.25em, 4vw, 1em) 1em;
+                    padding-right: 50px;
                     border-radius: .25em;
                     border: 0;
                     outline: 0;
@@ -107,6 +159,46 @@ main.logreg {
                 label {
                     margin-right: .5em;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        flex-direction: column-reverse;
+        height: auto;
+        padding: 2em clamp(0em, 3vw, 2em);
+
+        form {
+            width: 100%;
+            max-width: auto;
+        }
+
+        article.left,
+        section.right { width: 100%; }
+
+        article.left {
+            margin-top: 2em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        article.left {
+            padding: 2em 1em;
+        }
+        
+        section.right { 
+            padding: 1em .75em 2em .75em;
+
+            div.input-div {
+                &.small { width: 100%; }
+            }
+
+            button {
+                margin: 2em 0 1em 0;
+            }
+
+            h2 {
+                margin-bottom: 1em;
             }
         }
     }

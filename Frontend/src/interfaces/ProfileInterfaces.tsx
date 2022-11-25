@@ -10,11 +10,16 @@ export interface IProfileAsideList {
 
 export interface IProfileInfoDiv {
     keyName: string
-    value: string | number
+    value: string | number | JSX.Element
     cname?: string
 }
 
 export interface ITextInfo {
     header: string,
     text: string
+}
+
+export interface IUsernameMail {
+    mail: string
+    username: string
 }

@@ -1,12 +1,20 @@
 import React from 'react'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
+import { ITags } from '../../../../interfaces/ArticlePageInterfaces'
 
-const ArticleTags = () => {
+const ArticleTags = ({tags}: ITags) => {
+    const n: NavigateFunction = useNavigate()
+    
     return (
         <ul className='tags'>
 
-            <li>Tagonefsdfsdfsd</li>
-            <li>Twotags</li>
-            <li>Tutorials</li>
+            {
+                tags.map((x, i) => (
+                    <li key={i} onClick={() => n(`/search/subcategory/${x}`)}>
+                        {x}
+                    </li>
+                ))
+            }
 
         </ul>
     )

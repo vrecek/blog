@@ -38,6 +38,7 @@ li.layout-categories-menu {
                 li {
                     &.active {
                         font-weight: 800;
+                        pointer-events: none;
                         font-size: 1.4rem;
                         margin-bottom: .25em;
                     }

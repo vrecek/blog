@@ -14,7 +14,7 @@ section.regular-articles {
 
         p {
             font-weight: 500;
-            font-size: 1.1rem;
+            @include Clamp(1, 4, 1.1);
 
             &.redirect {
                 @include Flex(none, c);
@@ -38,7 +38,8 @@ section.regular-articles {
 
     article.art {
         display: flex;
-        width: 75%;
+        width: 100%;
+        max-width: 1500px;
 
         &:not(:last-child) { margin-bottom: 5em; }
 
@@ -63,12 +64,14 @@ section.regular-articles {
                 font-family: 'Inconsolata', monospace;
                 font-size: 1.1rem;
                 color: $clr-grey;
+                margin: .25em 0 .5em 0;
             }
         }
 
         figure {
             width: 40%;
             margin-right: 1em;
+            height: max-content;
 
             img {
                 @include FullSize;
@@ -87,6 +90,25 @@ section.regular-articles {
                     @include Flex(none, c);
                     span { @include Rectangle(25px); margin-right: .25em; }
                 }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        width: 100%;
+        padding: 0 .25em;
+        padding-bottom: 6em;
+    }
+
+    @media (max-width: 768px) {
+        article.art {
+            flex-direction: column;
+
+            figure {
+                width: 100%;
+                aspect-ratio: 2.5;
+                margin-bottom: 1em;
+                min-height: 150px;
             }
         }
     }

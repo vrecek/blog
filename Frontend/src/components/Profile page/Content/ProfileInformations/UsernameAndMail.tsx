@@ -1,12 +1,13 @@
 import React from 'react'
+import { IUsernameMail } from '../../../../interfaces/ProfileInterfaces'
 import InformationDiv from './InformationDiv'
 
-const UsernameAndMail = () => {
+const UsernameAndMail = ({mail, username}: IUsernameMail) => {
     return (
         <section className="uam">
 
-            <InformationDiv keyName='Username' value='vrecek' />
-            <InformationDiv keyName='Mail address' value='vrecekff-ci@outlook.com' />
+            <InformationDiv keyName='Username' value={username} />
+            <InformationDiv keyName='Mail address' value={mail} />
 
         </section>
     )

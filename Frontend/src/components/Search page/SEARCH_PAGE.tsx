@@ -2,9 +2,49 @@ import React from 'react'
 import LayoutWrap from '../Layout/LayoutWrap'
 import '../../css/SearchPage.css'
 import Searchbar from './Searchbar'
-import SearchedArticle from './SearchedArticle'
+import { defaultStateLoadHook, StateLoadingHook } from '../../interfaces/CommonInterfaces'
+import ISearchedArticle from '../../interfaces/SearchPageInterfaces'
+import { Location, NavigateFunction, useLocation, useNavigate, useParams } from 'react-router-dom'
+import fetchFunction from '../../functions/fetchFunction'
+import Fetches from '../../functions/Fetches'
+import FoundContainer from './FoundContainer'
+import EmptyContainer from './EmptyContainer'
 
 const SEARCH_PAGE = () => {
+    window.scrollTo(0, 0)
+    
+    const [articles, setArticles] = React.useState<StateLoadingHook<ISearchedArticle[]>>(defaultStateLoadHook),
+          n: NavigateFunction = useNavigate(),
+          loc: Location = useLocation(),
+          {query, type} = useParams()
+
+
+    React.useEffect(() => {
+        setArticles(defaultStateLoadHook)
+
+        ;(async () => {
+            await fetchFunction<ISearchedArticle[]>(
+                {url: `${process.env.REACT_APP_API_ARTICLE_SEARCH}/${type}/${query}`, type: 'GET'},
+                {appendTo: document.body, position: 'fixed'},
+
+                data => {
+                    setArticles({
+                        finished: true,
+                        data
+                    })
+                },
+
+                err => {
+                    n('/error', {
+                        replace: true,
+                        state: Fetches.returnFetchErrorState(err).msg
+                    })
+                }
+            )
+        })()
+    }, [loc])
+    
+    if(articles.finished && articles.data)
     return (
         <LayoutWrap>
 
@@ -12,18 +52,15 @@ const SEARCH_PAGE = () => {
 
                 <Searchbar />
 
-                <h1>Results for: <span>dolore</span></h1>
+                <h1>Results for: <span>{query}</span></h1>
 
                 <section className="container">
 
-                    <SearchedArticle />
-                    <SearchedArticle />
-                    <SearchedArticle />
-                    <SearchedArticle />
-                    <SearchedArticle />
-                    <SearchedArticle />
-                    <SearchedArticle />
-                    <SearchedArticle />
+                    {
+                        articles.data.length
+                            ? <FoundContainer articles={articles.data} />
+                            : <EmptyContainer />
+                    }
 
                 </section>
 
@@ -31,6 +68,8 @@ const SEARCH_PAGE = () => {
 
         </LayoutWrap>
     )
+
+    return <></>
 }
 
 export default SEARCH_PAGE

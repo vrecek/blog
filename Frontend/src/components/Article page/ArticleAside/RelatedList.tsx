@@ -1,25 +1,18 @@
 import React from 'react'
 import { NavigateFunction, useNavigate } from 'react-router-dom'
-import { ILinksList } from '../../../interfaces/FooterInterfaces'
+import { IRelatedArticles } from '../../../interfaces/ArticlePageInterfaces'
 
-const RelatedList = () => {
+const RelatedList = ({relatedArticles}: IRelatedArticles) => {
     const n: NavigateFunction = useNavigate()
-
-    const list: ILinksList[] = [
-        { text: 'Related topics', cname: 'disabled', url: '/' },
-        { text: 'Dolorem conqestur eit how to lorem ipsyum', url: '/' },
-        { text: 'Dolorem conqestur eit rcreating in a ss ss', url: '/' },
-        { text: 'Dolorem conqestur eit', url: '/' },
-        { text: 'Dolorem conqestur eit', url: '/' },
-        { text: 'Dolorem conqestur eit', url: '/' }
-    ]
 
     return (
         <ul>
 
+            <li className='disabled'>Related topics</li>
+
             {
-                list.map((x, i) => (
-                    <li key={i} onClick={() => n(x.url)} className={x.cname ?? ''}>
+                relatedArticles.map((x, i) => (
+                    <li key={i} onClick={() => n(`/article/${x.url}`)} className={x.cname ?? ''}>
                         {x.text}
                     </li>
                 ))

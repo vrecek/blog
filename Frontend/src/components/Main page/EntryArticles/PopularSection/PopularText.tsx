@@ -1,12 +1,12 @@
 import React from 'react'
 import { IPopularText } from '../../../../interfaces/HomepageInterfaces'
 
-const PopularText = ({header, para}: IPopularText) => {
+const PopularText = ({header, title}: IPopularText) => {
     return (
         <div className="text">
 
-            <p className='title'>{header}</p>
-            <p className="text">{para}</p>
+            <p className='title'>{title}</p>
+            <p className="text">{header}</p>
 
         </div>
     )

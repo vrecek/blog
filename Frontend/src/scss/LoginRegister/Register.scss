@@ -15,6 +15,7 @@ main.logreg.register {
             div.reg-profit {
                 @include Flex(sb, c);
                 @include Center(80%);
+                
                 &:not(:last-child) { margin-bottom: 1.5em; }
 
                 div {
@@ -60,8 +61,6 @@ main.logreg.register {
         @include Flex(sb, c, c);
 
         form {
-            width: 70%;
-
             iframe {
                 display: block;
                 margin: .5em 0;
@@ -69,6 +68,19 @@ main.logreg.register {
 
             div.small-wrap {
                 @include Flex(sb);
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        section.register-right {
+            form { div.small-wrap {
+                flex-direction: column;
+                width: 100%;
+            } }
+
+            iframe {
+                scale: .8;
             }
         }
     }

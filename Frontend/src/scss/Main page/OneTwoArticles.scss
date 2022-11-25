@@ -52,7 +52,7 @@ section.one-two {
             margin-top: 1em;
             
             p {
-                text-shadow: 0 0 4px $clr-black;
+                text-shadow: 0 0 4px black;
 
                 &.rating {
                     @include Flex(none, c);
@@ -62,11 +62,16 @@ section.one-two {
                     span {
                         margin-right: .25em; 
                         @include Rectangle(25px);
+
+                        svg {
+                            filter: drop-shadow(0 0 2px black)
+                        }
                     }
                 }
 
                 &.date {
                     font-weight: 500;
+                    font-size: 1.2rem;
                 }
             }
         }
@@ -84,7 +89,7 @@ section.one-two {
                 }
                 
                 &.title {
-                    font-size: 3.5rem;
+                    @include Clamp(2.5, 5, 3.5)
                 }
             }
         }
@@ -101,7 +106,7 @@ section.one-two {
                 }
 
                 &.title {
-                    font-size: 1.5rem;
+                    @include Clamp(1.25, 2, 1.5);
                 }
             }
         }
@@ -120,5 +125,49 @@ section.one-two {
             margin-left: 1em; 
             margin-right: 0 !important;
         }        
+    }
+
+    @media (max-width: 1000px) {
+        padding: 2.5em 0;
+        height: auto;
+        flex-direction: column;
+
+        article.art {
+            &.big,
+            &.small {
+                padding: 3em 0;
+
+                p {
+                    &.category {
+                        @include Clamp(.95, 4, 1.1);
+                    }
+
+                    &.title {
+                        @include Clamp(2, 7, 3)
+                    }
+                }
+            }
+
+            &.big {
+                width: 100%;
+                height: auto;
+                margin: 0;
+            }
+
+            &.small {
+                height: auto;
+                margin: 2em auto;
+            }
+        }
+
+        div.wrap {
+            width: 100%;
+        }
+
+        &.reverse {
+            flex-direction: column;
+
+            .big { margin: 0; }
+        }
     }
 }

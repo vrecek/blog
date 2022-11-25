@@ -1,13 +1,14 @@
 import React from 'react'
 import { BsFacebook } from 'react-icons/bs'
+import { ITileEntry } from '../../../../interfaces/HomepageInterfaces'
 import Icon from '../../../Common/Icon'
 
-const TileEntry = () => {
+const TileEntry = ({text, icon}: ITileEntry) => {
     return (
         <div className="entry">
 
-            <Icon><BsFacebook /></Icon>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut voluptas voluptatibus.
+            <Icon>{icon}</Icon>
+            {text}
 
         </div>
     )

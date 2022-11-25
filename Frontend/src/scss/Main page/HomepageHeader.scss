@@ -1,14 +1,15 @@
 @import '../config';
 
 header.homepage-header {
-    height: calc(100vh - $navHeight);
-    background: url('../images/header.jpg');
+    min-height: calc(100vh - $navHeight);
+    background: url('../images/header.png');
     background-size: cover;
-    padding: 2em 6em;
+    padding: 2em clamp(1em, 8vw, 6em);
     @include Flex(sa, none, c);
 
     section.text {
         width: 45%;
+        min-width: 400px;
 
         h2 {
             font-size: 1.5rem;
@@ -19,21 +20,25 @@ header.homepage-header {
         h1 {
             font-weight: 800;
             margin-bottom: .5em;
-            font-size: 3rem;
+            @include Clamp(2.5, 10, 3);
         }
 
         p {
             letter-spacing: 1px;
-            font-size: 1.25rem;
+            @include Clamp(1, 5, 1.25);
+            margin-bottom: 1em;
         }
     }
 
     section.tiles {
-        @include Flex(sb);
+        @include Flex(sa);
+        flex-wrap: wrap;
         align-items: stretch;
 
         div.tile {
             width: 20%;
+            margin: .75em;
+            min-width: 225px;
             background: rgba(30, 30, 30, .9);
             padding: 3em 2em;
             border-radius: .5em;
@@ -66,6 +71,22 @@ header.homepage-header {
                         @include Rectangle(50px);
                     }
                 }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        section.text { 
+            min-width: auto; 
+            width: 100%;
+            margin-bottom: 2em;
+        }
+
+        section.tiles {
+            div.tile {
+                width: 100%;
+                margin: 0;
+                margin-bottom: 1em;
             }
         }
     }

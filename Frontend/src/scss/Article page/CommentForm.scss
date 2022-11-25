@@ -1,0 +1,79 @@
+@import '../config';
+
+form.article-comment-form {
+    margin-bottom: 7em;
+    @include Flex(sb);
+    position: relative;
+
+    h6 {
+        position: fixed;
+        left: 50%;
+        top: 0;
+        translate: -50% 0;
+        padding: 1.2em 4em;
+        font-size: 1.1rem;
+        font-weight: 500;
+        border-radius: .25em;
+        background: #232323;
+        border: 1px solid #606060;
+        z-index: 999;
+    }
+
+    figure {
+        width: 10%;
+        height: max-content;
+        min-width: 50px;
+        aspect-ratio: 1;
+        flex-shrink: 0;
+        border-radius: 1em;
+
+        img {
+            @include FullSize;
+            object-fit: cover;
+        }
+    }
+
+    div {
+        flex-grow: 1;
+        padding-left: 1em;
+        @include Flex(sb, none, c);
+
+        textarea {
+            width: 100%;
+            resize: none;
+            height: 100%;
+            flex-shrink: 0;
+            outline: 0;
+            border: 0;
+            background: #252525;
+            border-radius: .15em;
+            padding: .5em;
+            @include Clamp(.9, 4, 1);
+            color: $clr-white;
+        }
+
+        button {
+            display: block;
+            padding: .75em 2em;
+            margin-top: .25em;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            width: max-content;
+            transition: .3s;
+            background: $clr-blued;
+            border-radius: .5em;
+
+            label {
+                font-size: 1rem;
+                color: $clr-white;
+            }
+
+            &:hover { background: darken(royalblue, 10%); }
+        }
+
+        @media (max-width: 480px) {
+            padding-left: .5em;
+        }
+    }
+}

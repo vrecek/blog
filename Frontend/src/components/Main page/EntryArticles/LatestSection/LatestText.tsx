@@ -1,13 +1,14 @@
 import React from 'react'
+import { ILatestText } from '../../../../interfaces/HomepageInterfaces'
 import LatestTextMisc from './LatestTextMisc'
 
-const LatestText = () => {
+const LatestText = ({title, posted, category}: ILatestText) => {
     return (
         <div className="text">
 
-            <p className="text">Lorem ipsum dolor siamet conqestur</p>
+            <p className="text">{title}</p>
 
-            <LatestTextMisc />
+            <LatestTextMisc posted={posted} category={category} />
 
         </div>
     )

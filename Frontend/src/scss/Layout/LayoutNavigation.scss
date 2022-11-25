@@ -7,7 +7,7 @@ nav.layout-navigation {
     background: #292929;
     position: sticky;
     top: 0;
-    z-index: 99;
+    z-index: 999;
 
     div {
         min-width: max-content;
@@ -36,7 +36,7 @@ nav.layout-navigation {
             ul {
                 @include Flex(none, c);
                 list-style: none;
-                margin-left: 5em;
+                margin-left: clamp(1em, 3vw, 5em);
 
                 li {
                     &:not(:last-child) { margin-right: 1.5em; }
@@ -56,6 +56,16 @@ nav.layout-navigation {
         }
 
         &.options {
+            @include Flex(none, c);
+
+            p {
+                margin-right: 2em;
+                cursor: pointer;
+                transition: .3s;
+
+                &:hover { color: $clr-bluel; }
+            }
+
             button {
                 padding: .75em 2em;
                 outline: 0;
@@ -64,6 +74,17 @@ nav.layout-navigation {
                 cursor: pointer;
                 border-radius: .25em;
                 border: 1px solid royalblue;
+
+                &.logout {
+                    color: $clr-white;
+                    border-color: transparent;
+                    background: $clr-red;
+                    position: relative;
+
+                    &:hover {
+                        background: crimson;
+                    }
+                }
 
                 &.signin {
                     background: royalblue;
@@ -77,19 +98,41 @@ nav.layout-navigation {
 
                 &.joinus {
                     margin-left: 1em;
-                    color: royalblue;
                     background: none;
+                    border-color: transparent;
+                    color: $clr-white;
 
                     &:hover {
-                        border-color: transparent;
-                        color: rgb(225, 225, 225);
+                        border-color: royalblue;
+                        color: royalblue;
                     }
                 }
 
                 label {
-                    font-weight: 400;
-                    font-size: .95rem;
+                    font-weight: 500;
+                    font-size: 1rem;
                 }
+            }
+        }
+
+        @media (max-width: 1000px) {
+            &.wrap {
+                div.logo {
+                    p { display: none; }
+                }
+
+                ul {
+                    li {
+                        &:not(:first-child) { display: none; }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            &.options {
+                p { display: none; }
+                button.joinus { display: none; }
             }
         }
     }

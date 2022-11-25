@@ -4,6 +4,13 @@ import '../../../../css/OneTwoArticles.css'
 import DisplayArticle from '../DisplayArticle'
 
 const OneTwoArticles = ({articles, cname}: IArticleContainer) => {
+    Object.assign(articles[0], { cname: 'big' })
+    Object.assign(articles[1], { cname: 'small' })
+    Object.assign(articles[2], { cname: 'small' })
+    
+    delete articles[1].text
+    delete articles[2].text
+
     return (
         <section className={`one-two ${cname}`}>
 

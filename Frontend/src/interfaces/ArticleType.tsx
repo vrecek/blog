@@ -1,26 +1,37 @@
+import { ImageType } from "./CommonInterfaces"
+
 export default interface ArticleType {
+    _id: string
+    
     title: string
     header: string
-    text: string
+
     tags: string[]
-    views: number
-    likes: number
-    postDate: number
-    mainImage: SchemaImageType
-    additionalImages: SchemaImageType[]
+
     category: string
     subcategory: string
-    comments: ArticleCommentType
-    _id: string
-}
 
-export interface SchemaImageType {
-    url: string,
-    filename: string
-}
+    posted: number
 
-export interface ArticleCommentType {
-    authorId: string
-    postDate: number
+    likes: RateType
+    views: number
+
     text: string
+
+    comments: CommentType[]
+
+    mainImg: ImageType
+    additionalImgs: ImageType[]
+}
+
+export interface CommentType {
+    authorName: string
+    authorAvatar: string
+    postedDate: number
+    text: string
+}
+
+export interface RateType {
+    num: number
+    whoRated: string[]
 }

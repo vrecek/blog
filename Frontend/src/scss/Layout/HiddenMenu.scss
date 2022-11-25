@@ -6,12 +6,36 @@ aside.menu {
     left: 0;
     top: 0;
     background: #202020;
-    z-index: 99;
+    z-index: 9999;
     padding: 1.5em;
     width: 450px;
-    max-width: 100%;
+    max-width: 100vw;
     transition: .2s;
     translate: -105% 0;
+
+    div.searchbar {
+        @include Flex(sb);
+        margin-bottom: 1em;
+
+        span {
+            @include Rectangle(45px);
+            background: #404040;
+            @include Flex(c, c);
+
+            svg { @include FullSize(70%) }
+        }
+
+        input {
+            outline: 0;
+            width: calc(100% - 40px);
+            border: 0;
+            padding: 0 1em;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: $clr-white;
+            background: #404040;
+        }
+    }
 
     span.menu-icon {
         @include Rectangle(25px);
@@ -27,7 +51,13 @@ aside.menu {
             font-weight: 500;
             cursor: pointer;
             font-size: 1.15rem;
-            border-bottom: 1px solid $clr-white;
+            border-bottom: 1px solid $clr-grey;
+            @include Flex(none, c);
+
+            span {
+                @include Rectangle(30px);
+                margin-right: 1em;
+            }
         }
     }
 }

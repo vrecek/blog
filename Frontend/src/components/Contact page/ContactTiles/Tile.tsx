@@ -1,17 +1,17 @@
 import React from 'react'
-import { BiPhone } from 'react-icons/bi'
+import { ITile } from '../../../interfaces/ContactPageInterfaces'
 import Icon from '../../Common/Icon'
 
-const Tile = () => {
+const Tile = ({icon, header, text}: ITile) => {
     return (
         <div className="tile">
 
             <div>
-                <Icon><BiPhone /></Icon>
+                <Icon>{icon}</Icon>
             </div>
 
-            <p className="header">Lorem Ipsum</p>
-            <p className='text'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam sunt.</p>
+            <p className="header">{header}</p>
+            <p className='text'>{text}</p>
 
         </div>
     )

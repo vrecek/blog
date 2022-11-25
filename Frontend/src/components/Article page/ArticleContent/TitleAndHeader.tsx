@@ -1,11 +1,12 @@
 import React from 'react'
+import { ITitleHeader } from '../../../interfaces/ArticlePageInterfaces'
 
-const TitleAndHeader = () => {
+const TitleAndHeader = ({title, header}: ITitleHeader) => {
     return (
         <>
         
-            <h2>Lorem ipsum dolor sitamet</h2>
-            <h1>Lorem ipsum dolor sit amet conqesatur elit</h1>
+            <h2>{header}</h2>
+            <h1>{title}</h1>
 
         </>
     )

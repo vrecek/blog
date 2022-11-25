@@ -2,128 +2,184 @@
 
 main.article-page {
     min-height: calc(100vh - $navHeight);
-    @include Flex(sa);
-    padding: 2em;
+    padding: 2em clamp(.5em, 3vw, 2em);
 
-    section.main-container {
+    div.wrapper {
+        @include Flex(sb);
+    }
+
+    article.content {
+        border-bottom: 2px solid $clr-grey;
+        margin-bottom: 4em;
+        padding-bottom: 5em;
         width: 70%;
+        
+        section.article-image-section {
+            position: relative;
+
+            figure.main-img {
+                width: 100%;
+                aspect-ratio: 2;
+                @include Flex(c, c);
+                overflow: hidden;
+                margin-bottom: 2em;
+
+                img {
+                    @include FullSize;
+                    object-fit: cover;
+                }
+            }
+
+            ul.tags {
+                list-style: none;
+                z-index: 2;
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                display: flex;
+                flex-wrap: wrap;
+
+                li {
+                    margin-left: .5em;
+                    font-weight: 600;
+                    @include Clamp(.9, 4, 1);
+                    padding: .75em;
+                    background: royalblue;
+                    box-shadow: 0 0 6px black;
+                    border-radius: .15em;
+                    cursor: pointer;
+                    margin-bottom: .5em;
+                }
+            }
+        }
+
+        section.content-misc {
+            @include Flex(sb);
+            @include Clamp(1, 4, 1.2);
+            color: $clr-grey;
+            margin-bottom: .75em;
+
+            div {
+                @include Flex(none, c);
+                font-family: 'Inconsolata', monospace;
+                font-weight: 800;
+                &:first-child { margin-right: 1em }
+                
+                span {
+                    @include Rectangle(30px);
+                    margin-right: .25em;
+                }
+            }
+        }
+
+        h1 {
+            font-weight: 800;
+            @include Clamp(2.5, 7, 3.5);
+            margin-bottom: 1em;
+        }
+
+        h2 {
+            margin-top: 2em;
+            position: relative;
+            @include Clamp(1.25, 5, 1.5);
+
+            &::before {
+                content: '';
+                height: 90%;
+                width: 2px;
+                background: $clr-white;
+                position: absolute;
+                left: -.5em;
+                top: 50%;
+                translate: 0 -50%;
+            }
+        }
+
+        pre {
+            @include Clamp(1.1, 5, 1.25);
+            line-height: 2em;
+            color: $clr-grey;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+
+            a {
+                color: greenyellow;
+                text-decoration: none;
+
+                &:hover { color: darken(greenyellow, 10%) }
+            }
+
+            img {
+                width: 70%;
+                display: block;
+                margin: 2em auto;
+            }
+
+            span {
+                &.box {
+                    display: block;
+                    background: #252525;
+                    color: $clr-white;
+                    border-radius: .2em;
+                    padding: 1em;
+                    font-family: 'Inconsolata', monospace;
+                    word-spacing: 4px;
+                    @include Clamp(1, 5, 1.25);
+                    margin: 1em 0;
+                }
+
+                &.header {
+                    display: block;
+                    font-size: 2rem;
+                    font-weight: 700;
+                    margin: 1em 0 .5em 0;
+                    color: $clr-white;
+                }
+
+                &.color {
+                    color: $clr-bluel;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        div.wrapper {
+            flex-direction: column;
+        }
 
         article.content {
-            border-bottom: 2px solid $clr-grey;
-            margin-bottom: 4em;
-            padding-bottom: 5em;
-            
-            section.article-image-section {
-                position: relative;
+            width: 100%;
 
+            h2 { &::before { display: none; } }
+
+            section.article-image-section {
                 figure.main-img {
-                    width: 100%;
-                    aspect-ratio: 2;
-                    @include Flex(c, c);
-                    overflow: hidden;
-                    margin-bottom: 2em;
-    
-                    img {
-                        width: 100%;
-                    }
+                    margin-bottom: 0;
+                    aspect-ratio: 1.5;
                 }
 
                 ul.tags {
-                    list-style: none;
-                    z-index: 2;
-                    position: absolute;
-                    top: 4px;
-                    right: 4px;
-                    display: flex;
+                    position: static;
+                    margin-bottom: 2em;
+                    margin-top: .5em;
+                    text-align: center;
 
                     li {
-                        margin-left: .5em;
-                        font-weight: 600;
-                        padding: .75em;
-                        background: royalblue;
-                        box-shadow: 0 0 6px black;
-                        border-radius: .15em;
-                        cursor: pointer;
+                        margin-left: 0;
+                        margin-right: .5em;
+                        @include Flex(c, c);
                     }
                 }
             }
+        }
+    }
 
-            section.content-misc {
-                @include Flex(sb);
-                font-size: 1.2rem;
-                color: $clr-grey;
-                margin-bottom: .75em;
-
-                div {
-                    @include Flex(none, c);
-                    font-family: 'Inconsolata', monospace;
-                    font-weight: 800;
-                    
-                    span {
-                        @include Rectangle(30px);
-                        margin-right: .25em;
-                    }
-                }
-            }
-
-            h1 {
-                font-weight: 800;
-                font-size: 3.5rem;
-                margin-bottom: 1em;
-            }
-
-            h2 {
-                margin-top: 2em;
-                position: relative;
-
-                &::before {
-                    content: '';
-                    height: 90%;
-                    width: 2px;
-                    background: $clr-white;
-                    position: absolute;
-                    left: -.5em;
-                    top: 50%;
-                    translate: 0 -50%;
-                }
-            }
-
-            p {
-                font-size: 1.25rem;
-                line-height: 2em;
-                color: $clr-grey;
-
-                a {
-                    color: greenyellow;
-                    text-decoration: none;
-
-                    &:hover { color: darken(greenyellow, 10%) }
-                }
-
-                img {
-                    width: 70%;
-                    display: block;
-                    margin: 2em auto;
-                }
-
-                span {
-                    &.box {
-                        display: block;
-                        background: #252525;
-                        color: $clr-white;
-                        border-radius: .2em;
-                        padding: 1em;
-                        margin: 1em 0;
-                    }
-
-                    &.header {
-                        display: block;
-                        font-size: 2rem;
-                        font-weight: 700;
-                        margin: 1em 0 .5em 0;
-                        color: $clr-white;
-                    }
-                }
+    @media (max-width: 768px) {
+        article.content {
+            pre {
+                img { width: 100%; }
             }
         }
     }

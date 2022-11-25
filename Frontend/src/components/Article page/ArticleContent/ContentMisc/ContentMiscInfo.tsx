@@ -1,16 +1,15 @@
 import React from 'react'
-import { AiOutlineFieldTime } from 'react-icons/ai'
-import Icon from '../../../Common/Icon'
+import { IMiscInformations } from '../../../../interfaces/ArticlePageInterfaces'
 import DateString from './DateString'
 import ReadTime from './ReadTime'
 
-const ContentMiscInfo = () => {
+const ContentMiscInfo = ({postedDate, textLen}: IMiscInformations) => {
     return (
         <section className="content-misc">
 
-            <ReadTime />
+            <ReadTime textLen={textLen} />
 
-            <DateString />
+            <DateString postedDate={postedDate} />
 
         </section>
     )

@@ -1,15 +1,27 @@
 import React from 'react'
 import FigureImage from '../Common/FigureImage'
-import img from '../../images/n3.jpg'
+import ISearchedArticle from '../../interfaces/SearchPageInterfaces'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
+import RateAndDate from '../Main page/Articles/RateAndDate'
+import ImageContainer from './ImageContainer'
 
-const SearchedArticle = () => {
+const SearchedArticle = ({image, _id, likes, title, category, tags, posted}: ISearchedArticle) => {
+    const n: NavigateFunction = useNavigate()
+
     return (
-        <article>
+        <article onClick={() => n(`/article/${_id}`)}>
 
-            <FigureImage source={img} altTxt='Article' />
-            <p className="header">Lotem ipsum dolorsit amet conqestur</p>
-            <p className="category">Tutorial</p>
-            <p className="date">Today</p>
+            <div>
+
+                <ImageContainer tags={tags} image={image} />
+
+                <p className="header">{title}</p>
+
+            </div>
+
+            <p className="category">{category}</p>
+
+            <RateAndDate likes={{num: likes, whoRated: []}} posted={posted} />
 
         </article>
     )

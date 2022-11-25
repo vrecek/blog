@@ -13,7 +13,7 @@ const Socials = () => {
             <div>
 
                 <Icon><MdFacebook /></Icon>
-                <Icon><AiFillGithub /></Icon>
+                <Icon action={() => window.open('https://github.com/vrecek', '_blank')}><AiFillGithub /></Icon>
                 <Icon><AiFillInstagram /></Icon>
                 <Icon><BsTwitch /></Icon>
 

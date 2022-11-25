@@ -1,28 +1,21 @@
 import React from 'react'
 import RelatedList from './RelatedList'
 import '../../../css/ArticleAside.css'
-import Icon from '../../Common/Icon'
-import { AiOutlineLike } from 'react-icons/ai'
-import { BsCalendarDateFill } from 'react-icons/bs'
+import { IArticleAside } from '../../../interfaces/ArticlePageInterfaces'
+import Likes from './Likes'
+import DateStr from './DateStr'
 
-const ArticleAside = () => {
-    
+const ArticleAside = ({likes, postedDate, relatedArticles, id}: IArticleAside) => {
     return (
         <aside className="article-aside">
 
-            <RelatedList />
+            <RelatedList relatedArticles={relatedArticles} />
 
             <section className="misc-info">
 
-                <div className="icon likes">
-                    <Icon><AiOutlineLike /></Icon>
-                    999
-                </div>
+                <Likes id={id} details={likes} />
 
-                <div className="icon date">
-                    <Icon><BsCalendarDateFill /></Icon>
-                    12.12.2022
-                </div>
+                <DateStr>{postedDate}</DateStr>
 
             </section>
 

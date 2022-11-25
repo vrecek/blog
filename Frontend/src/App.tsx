@@ -11,45 +11,88 @@ import SEARCH_PAGE from './components/Search page/SEARCH_PAGE';
 import ARTICLE_PAGE from './components/Article page/ARTICLE_PAGE';
 import PROFILE_PAGE from './components/Profile page/PROFILE_PAGE';
 import ADMIN_PAGE from './components/Admin/ADMIN_PAGE';
+import fetchFunction from './functions/fetchFunction';
+import UserType from './interfaces/UserType';
+import {PossibleUser} from './interfaces/UserType'
+import { defaultStateLoadHook, StateLoadingHook } from './interfaces/CommonInterfaces';
+import ERROR_PAGE from './components/Error/ERROR_PAGE';
+import CookiePopup from './components/Layout/CookiePopup/CookiePopup';
+import Cookies from 'universal-cookie'
+
+const UserContext = React.createContext<PossibleUser>(null)
 
 function App() {
+    const [user, setUser] = React.useState<StateLoadingHook<UserType>>(defaultStateLoadHook)
+    const [hasConfirmedCookie, setConfirm] = React.useState<boolean>(!!new Cookies().get('hucc'))
+
+    React.useEffect(() => {
+        fetchFunction<UserType>(
+            { url: process.env.REACT_APP_API_USER_LOGGED!, type: 'GET' },
+            { position: 'fixed', appendTo: document.body },
+
+            user => {
+                setUser({
+                    finished: true,
+                    data: user
+                })
+            },
+
+            err => {
+                setUser({
+                    finished: true,
+                    data: null
+                })
+            }
+        )
+    }, [])
+
+    
+    if(user.finished)
     return (
         <div className="App">
         
             <Router>
 
-                <Routes>
+                <UserContext.Provider value={user.data}>
 
-                    <Route path='/' element={<MAIN_PAGE />} />
+                    <Routes>
 
-                    <Route path='/sign-in' element={<LOGIN_PAGE />} />
-                    <Route path='/register' element={<REGISTER_PAGE />} />
+                        <Route path='/' element={<MAIN_PAGE />} />
 
-                    <Route path='/contact' element={<CONTACT_PAGE />} />
+                        <Route path='/sign-in' element={<LOGIN_PAGE />} />
+                        <Route path='/register' element={<REGISTER_PAGE />} />
 
-                    <Route path='/search'>
+                        <Route path='/contact' element={<CONTACT_PAGE />} />
 
-                        <Route path='bar/:query' element={<SEARCH_PAGE />} />
-                        <Route path='category/:query' element={<SEARCH_PAGE />} />
-                        <Route path='subcategory/:query' element={<SEARCH_PAGE />} />
+                        <Route path='/search/:type/:query' element={<SEARCH_PAGE />} />
 
-                    </Route>
+                        <Route path='/article/:id' element={<ARTICLE_PAGE />} />
 
-                    <Route path='/article/:id' element={<ARTICLE_PAGE />} />
+                        <Route path='/profile' element={<PROFILE_PAGE />} />
 
-                    <Route path='/profile' element={<PROFILE_PAGE />} />
+                        <Route path={`/admin/${process.env.REACT_APP_ADMIN_URL}`} element={<ADMIN_PAGE />} />
 
-                    <Route path={`/admin/${process.env.REACT_APP_ADMIN_URL}`} element={<ADMIN_PAGE />} />
+                        <Route path='/error' element={<ERROR_PAGE />} />
 
-                </Routes>
+                    </Routes>
 
-                <ArrowTop />
-                <HiddenMenu />
+                    {
+                        !hasConfirmedCookie
+                            && <CookiePopup setCk={setConfirm} />
+                    }
+
+                    <ArrowTop />
+                    <HiddenMenu />
+
+                </UserContext.Provider>
 
             </Router>
 
         </div>
     )
+
+    return <></>
 }
 
 export default App;
+export {UserContext}

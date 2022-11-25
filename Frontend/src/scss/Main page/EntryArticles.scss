@@ -19,7 +19,7 @@ section.entry-articles {
 
         p.header {
             text-transform: uppercase;
-            font-weight: 300;
+            font-weight: 400;
             font-size: 1.1rem;
             margin-bottom: 1.5em;
             color: $clr-grey;
@@ -78,18 +78,17 @@ section.entry-articles {
                         padding: 2em;
                         
                         p {
-                            text-shadow: 0 0 5px $clr-black;
-
                             &.title {
                                 font-weight: 700;
-                                font-size: 3.5rem;
+                                @include Clamp(2.25, 7, 3.5);
                                 margin-bottom: .5em;
+                                text-shadow: 0 0 4px $clr-black;
                             }
 
                             &.text {
-                                font-style: italic;
-                                font-size: 1.5rem;
+                                @include Clamp(1, 4, 1.5);
                                 font-weight: 600;
+                                text-shadow: 0 0 3px $clr-black;
                             }
                         }
                     }
@@ -123,7 +122,7 @@ section.entry-articles {
         section.container {
             flex-basis: 0;
             flex-grow: 1;
-            @include Flex(sa, none, c)
+            @include Flex(sa, none, c);
         }
         
         article.latest {
@@ -139,6 +138,7 @@ section.entry-articles {
                 p.text {
                     font-weight: 700;
                     font-size: 1.5rem;
+                    margin-bottom: .25em;
                 }
 
                 div.misc {
@@ -154,8 +154,10 @@ section.entry-articles {
 
             figure {
                 width: 30%;
-                height: 100%;
+                height: max-content;
+                aspect-ratio: 1.5;
                 overflow: hidden;
+                flex-shrink: 0;
 
                 img {
                     @include FullSize;
@@ -166,6 +168,54 @@ section.entry-articles {
 
             &:hover {
                 img { scale: 1.05; }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        height: auto;
+        padding: 2em 1em;
+        flex-direction: column;
+
+        span.abs { display: none; }
+
+        section.main { height: auto; }
+
+        section.latest {
+            width: 100%;
+            margin-top: 2em;
+
+            article.latest {
+                &:not(:last-child) { margin-bottom: 3em; }
+            }
+        }
+
+        section.popular {
+            width: 100%;
+            aspect-ratio: 1.25;
+            min-height: 500px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        section.latest {
+            article.latest {
+                flex-direction: column;
+
+                figure {
+                    height: auto;
+                    width: 100%;
+                    aspect-ratio: 2;
+                    margin-bottom: .5em;
+                }
+
+                div.text {
+                    width: 100%;
+
+                    p.text {
+                        margin-bottom: 1em;
+                    }
+                }
             }
         }
     }

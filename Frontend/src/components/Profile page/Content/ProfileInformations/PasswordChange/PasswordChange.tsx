@@ -1,19 +1,54 @@
 import React from 'react'
+import { UserContext } from '../../../../../App'
+import AppendResult from '../../../../../functions/AppendText'
+import Fetches from '../../../../../functions/Fetches'
+import fetchFunction from '../../../../../functions/fetchFunction'
 import Button from '../../../../Common/Button'
 import TextInfo from '../TextInfo'
 import PasswordDiv from './PasswordDiv'
 
 const PasswordChange = () => {
-    /*
-    article: comments
-
-    admin: view articles (delete) | create article
-
-    FIN
-    */
+    const userId: string = React.useContext(UserContext)!._id
+    const ar: AppendResult = new AppendResult('h6')
 
     const submitPassword = async (e: React.FormEvent): Promise<void> => {
         e.preventDefault()
+
+        const t: HTMLFormElement = e.target as HTMLFormElement
+        const elements: HTMLInputElement[] = Array.from(t.elements as HTMLCollectionOf<HTMLInputElement>)
+
+        const [pass, confPass] = elements
+                                    .map(x => x.value)
+
+
+        const btn: HTMLElement = elements.slice(-1)[0]
+
+        const body = {
+            pass,
+            confPass,
+            userId
+        }
+
+        await fetchFunction(
+            {url: process.env.REACT_APP_API_CHANGE_PASSWORD!, type: 'PATCH', body},
+            {position: 'containerWidth', appendTo: t},
+
+            () => {
+                ar.setClass = 'true'
+                ar.setMessage = 'Successfully changed. You will be logged off.'
+                
+                window.location.pathname = '/sign-in'
+            },
+
+            err => {
+                ar.setClass = 'false'
+                ar.setMessage = Fetches.returnFetchErrorState(err).msg
+            },
+
+            () => {
+                ar.appendTo(btn, 3)
+            }
+        )
     }
 
     return (

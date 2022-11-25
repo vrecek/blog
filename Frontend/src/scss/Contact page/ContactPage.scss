@@ -6,12 +6,14 @@ main.contact-page {
 
     section.tiles {
         width: 35%;
+        min-width: 500px;
         @include Flex(c, c);
+        align-items: stretch;
         flex-wrap: wrap;
 
         div.tile {
             @include Flex(c, c, c);
-            width: 47%;
+            width: 45%;
             aspect-ratio: 1;
             border: 2px solid #252525;
             box-shadow: 0 0 8px black;
@@ -24,13 +26,20 @@ main.contact-page {
 
                 &.header {
                     font-size: 1.5rem;
+                    font-size: 1.75vmax;
                     margin-bottom: .25em;
                     font-weight: 600;
+                    font-size: min(2.5vw, 1.5rem);
+                    @include Clamp(1.2, 3, 1.5)
+
+
                 }
 
                 &.text {
                     color: $clr-grey;
-                    font-size: 1.05rem;
+                    font-size: min(2vw, 1.05rem);
+                    font-size: 1.75vmin;
+                    @include Clamp(.95, 2, 1.05)
                 }
             }
 
@@ -48,7 +57,7 @@ main.contact-page {
     }
 
     form {
-        width: 30%;
+        width: 35%;
         
         input,
         textarea {
@@ -101,6 +110,44 @@ main.contact-page {
             }
 
             &:hover { background: darken(royalblue, 8%); }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        height: auto;
+        padding: 2em;
+        flex-direction: column;
+
+        form {
+            width: 100%;
+            margin-top: 2em;
+        }
+    }
+
+    @media (max-width: 768px) {
+        section.tiles {
+            width: 100%;
+            min-width: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 2em .75em;
+
+        section.tiles {
+            flex-direction: column;
+
+            div.tile {
+                width: 100%;
+                aspect-ratio: auto;
+                margin: .5em 0;
+
+                div {
+                    span {
+                        @include Rectangle(50px)
+                    }
+                }
+            }
         }
     }
 }

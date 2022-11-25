@@ -8,8 +8,8 @@ const LinksList = () => {
 
     const links: INavigateLinks[] = [
         { text: 'Home', url: '/' },
-        { text: 'Tutorials', url: '/search/category/tutorials' },
-        { text: 'News', url: '/search/category/news' }    
+        { text: 'Tutorials', url: '/search/category/Tutorial' },
+        { text: 'News', url: '/search/category/News' }    
     ]
 
     return (

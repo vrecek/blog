@@ -1,14 +1,18 @@
 import React from 'react'
+import { IHeaderTile } from '../../../interfaces/HomepageInterfaces'
 import TileArrow from './Tiles/TileArrow'
 import TileEntry from './Tiles/TileEntry'
 
-const HeaderTile = () => {
+const HeaderTile = ({text, url, icon}: IHeaderTile) => {
     return (
         <div className="tile">
 
-            <TileEntry />
+            <TileEntry icon={icon} text={text} />
 
-            <TileArrow />
+            {
+                url 
+                    && <TileArrow url={url} />
+            }
 
         </div>
     )

@@ -2,16 +2,21 @@
 
 section.border-articles {
     padding: 2em;
-    padding-bottom: 6.5em;
+    padding-bottom: clamp(3em, 8vw, 6.5em);
     @include Flex(sa);
+    flex-wrap: wrap;
 
     article.art {
         width: 25%;
+        min-width: 350px;
         border: 2px solid #404040;
-        overflow: hidden;
+        margin: 0 .5em 1em .5em;
+        @include Flex(sb, none, c);
 
         div.wrap-text {
             padding: 1em;
+            @include Flex(sb, none, c);
+            flex-grow: 1;
         }
 
         figure {
@@ -21,7 +26,8 @@ section.border-articles {
             overflow: hidden;
 
             img {
-                width: 100%;
+                @include FullSize;
+                object-fit: cover;
             }
         }
 
@@ -61,6 +67,17 @@ section.border-articles {
                     
                 }
             }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 2em 0;
+        
+        article.art {
+            min-width: auto;
+            width: 100%;
+            margin: 0;
+            margin-bottom: 1em;
         }
     }
 }
