@@ -4,9 +4,9 @@ const HeaderText = () => {
     return (
         <section className="text">
 
-            <h2>Conqesatur elit dolorem</h2>
-            <h1>Lorem ipsum dolorsitamet alsi</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sequi aliquam ex maiores enim.</p>
+            <h2>What will you find?</h2>
+            <h1>Explore our latest news</h1>
+            <p>Read verified articles and rate them. Creating account will help us in further services. Check out tiles below</p>
 
         </section>
     )
